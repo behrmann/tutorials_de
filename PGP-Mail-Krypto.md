@@ -27,6 +27,14 @@ Warum eigentlich Krypto? Wer kann schon meine Mails lesen?
 
 ## Thunderbird installieren und konfigurieren
 
+FU Berlin http://www.zedat.fu-berlin.de/tip4u_91.pdf
+HU Berlin
+TU Berlin https://www.tubit.tu-berlin.de/menue/dienste/kommunikation_internet/e-mail/der_e-mail_service/daten_und_anleitungen/einrichtung_in_thunderbird/
+LMU München http://www.en.it.physik.uni-muenchen.de/dienste/kommunikation/e-mail/einrichtung_clients/index.html
+TU München https://portal.mytum.de/faq/it-dienste/email2/imap
+KIT https://www.scc.kit.edu/dienste/7395.php
+Universität Potsdam http://www.zeik.uni-potsdam.de/internet/mail.html
+
 # Krypto!
 
 ## Schlüssel machen
