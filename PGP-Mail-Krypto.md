@@ -279,6 +279,8 @@ Die "Sende-Optionen" sind was uns interessiert. Dort kann man sehr kleinteilig
 einstellen an welche Adressen man HTML- und an welche man Reintext-Mails schicken
 möchte.
 
+![Sende-Optionen](./img/tb_12.png)
+
 Da wir natürlich nur Reintext-Mails schicken wollen, setzen wir dort über hinzufügen
 die Expression \*.\* als Wildcard um alle Namen für Domains auf einmal zu erfassen.
 Natürlich gilt immer die oben genannte Ausnahme (Shift beim Klicken von Verfassen)
@@ -302,11 +304,11 @@ Enigmail ist das Addon das Thunderbird als Wrapper für GPG benutzt. Dafür gehe
 wir unter Extras im Hauptmenü in das Add-on Menü und suchen nach Enigmail,
 installieren es und starten anschließen Thunderbird neu.
 
-![Enigmail Addon](./img/tb_12.png)
+![Enigmail Addon](./img/tb_13.png)
 
 ## Schlüssel machen
 
-![fig13](./img/tb_13.png)
+
 ![fig14](./img/tb_14.png)
 ![fig15](./img/tb_15.png)
 ![fig16](./img/tb_16.png)
