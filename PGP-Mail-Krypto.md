@@ -15,6 +15,8 @@ ich hoffe mit diesem Tutorial etwas Licht ins Dunkel zu bringen.
 
 Im Folgenden werden PGP und GPG gleichwertig benutzt.
 
+Alle Änderungwünsche und Vorschläge sende man mir per Email an [mich](mailto:behrmann@physik.fu-berlin.de).
+
 # Warum Krypto?
 
 ## Warum eigentlich Krypto? Wer kann schon meine Mails lesen?
@@ -105,9 +107,24 @@ Schlüssel besitzt mit dessen Hilfe der Digest erstellt wurde.
 
 ## Ein paar Worte dazu wie Krypto funktioniert
 
-# Vorbereitungen
+# Mein erster Tag mit GPG
 
-## GPG installieren
+Im Folgenden gehen wir gemeinsam reich bebildert durch die Instllation und
+Konfiguration von Thunderbird und GPG. Da (leider) die meisten Leute Windows
+benutzen, habe ich ein aktuelles Windows 7 als Beispielsystem genommen auf das
+ich das aktuelle [Thunderbird 24.5.0](https://www.mozilla.org/en-US/thunderbird/)
+installiert habe. Für unser eigentliches Ziel, die Email-Krypto mit PGP, kommt
+dazu noch [GPG4Win](http://www.gpg4win.org/) und [Enigmail](https://www.enigmail.net/home/index.php).
+
+Unter allen gängigen Linux-Distributionen ist alles etwas einfacher, da man im
+Zweifel nur Thunderbird installieren muss, da alle großen Distributionen GPG
+schon in der Form von [GNUPG](https://www.gnupg.org/) mitbringen.
+
+Unter Mac OS X ist eigentlich auch alles mehr oder weniger einfach, dort ist
+die GPG Suite die man haben möchte [GPGTools](https://gpgtools.org/). Allerdings
+sind meine Aussagen zu Mac OS mit Vorsicht zu genießen, da ich keinen Mac habe
+um sie zu testen, folglich übernehme ich, wie auch für alle anderen Aussagen,
+keine Gewähr.
 
 ## Thunderbird installieren und konfigurieren
 
@@ -181,6 +198,14 @@ Universität Potsdam | http://www.zeik.uni-potsdam.de/internet/mail.html
 ![fig58](./img/tb_58.png)
 
 # Krypto!
+
+## GPG installieren
+
+Um jetzt zur Krypto zu kommen, müssen wir erstmal GPG installieren. Unter Windows
+läd man sich dafür [GPG4Win](http://www.gpg4win.org/) herunter und installiert es.
+Unter Linux ist das ganze etwas einfacher, denn GPG wird von allen großen Distribution
+zur Signierung ihrer Pakete verwendet und ist deswegen schon installiert.
+Unter Mac OS X muss man zu [GPGTools](https://gpgtools.org/) greifen.
 
 ## Schlüssel machen
 
