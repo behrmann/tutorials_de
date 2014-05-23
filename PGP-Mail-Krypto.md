@@ -112,7 +112,7 @@ Schlüssel besitzt mit dessen Hilfe der Digest erstellt wurde.
 ## Thunderbird installieren und konfigurieren
 
 Uni | Anleitung
----------------
+----|----------
 FU Berlin | http://www.zedat.fu-berlin.de/tip4u_91.pdf
 HU Berlin | http://www.cms.hu-berlin.de/dl/kommunikation/email/clients/Thunderbird301/
 TU Berlin | https://www.tubit.tu-berlin.de/menue/dienste/kommunikation_internet/e-mail/der_e-mail_service/daten_und_anleitungen/einrichtung_in_thunderbird/
