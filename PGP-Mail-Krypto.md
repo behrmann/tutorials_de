@@ -126,7 +126,36 @@ sind meine Aussagen zu Mac OS mit Vorsicht zu genießen, da ich keinen Mac habe
 um sie zu testen, folglich übernehme ich, wie auch für alle anderen Aussagen,
 keine Gewähr.
 
+Ich werde das Tutorial für eine fiktive Nutzerin mit dem Namen Marianne Mustermann
+schreiben und einmal durch alle wichtigen Einstellungen von Thunderbird gehen.
+
 ## Thunderbird installieren und konfigurieren
+
+Als erstes installieren wir [Thunderbird](https://www.mozilla.org/en-US/thunderbird/).
+Beim ersten öffnen, solltet ungefähr soetwas sehen:
+
+![Thunderbird beim ersten Start](./img/tb_01.png)
+
+Da ihr von eurer Uni eine funktionierende Mailadresse bekommen habt oder schon eine
+habt, ist "Überspringen und meine existierende E-Mail-Adresse verwenden" die
+richtige Wahl.
+
+Das führt euch zum folgenden Fenster:
+
+![Mailkonfigurationsfenster](./img/tb_02.png)
+
+In diesem Fenster könnte ihr euren Namen und eure Mailadresse eintragen, sowie
+das Passwort für den Mailsever, wenn ihr wollte, könnt ihr euer Passwort auch
+sprechen.
+
+Aus dem Hostname der Mailadresse kann Thunderbird die Einstellungen des Mailserver
+bestimmen, für den Fall, dass die Einstellungen eures Mailservers nicht in
+Thunderbirds Datenbank sind, könnt ihr Protokoll (IMAP oder POP3 für den
+Posteingangsserver), Hostname von IMAP- und SMTP-Server, ihre Ports, die SSL-Einstellungen
+und die Art der Authentifizierung sowie euren Usernamen für den Mailserver
+einstellen
+
+Hier eine Liste von Beispieleinstellungen für ein paar Unis:
 
 Uni | Anleitung
 ----|----------
@@ -138,10 +167,54 @@ LMU München | http://www.en.it.physik.uni-muenchen.de/dienste/kommunikation/e-m
 TU München  | https://portal.mytum.de/faq/it-dienste/email2/imap
 Universität Potsdam | http://www.zeik.uni-potsdam.de/internet/mail.html
 
-![fig01](./img/tb_01.png)
-![fig02](./img/tb_02.png)
-![fig03](./img/tb_03.png)
-![fig04](./img/tb_04.png)
+Ein Kommentar zu den Einstellungen: IMAP ist auf jeden Fall vor POP3 zu bevorzugen.
+Bei IMAP liegen eure Mails dauerhaft auf dem Mailserver, mit POP3 werden sie vo,
+Mailserver heruntergeladen und verschwinden von dort. Beides hat Vor- und Nachteile.
+Zwar liegen bei IMAP eure Mails auf einem Server, aber dafür liegen eure Mails auf
+einem Server. Das ist nicht nur ein gutes Backup, sondern ermöglicht auch eure
+Mails zwischen mehreren Clients synchron zu halten und Smartphones und Tablets sei
+Dank hat heute jeder mehrere Clients.
+Viel wichtiger ist jedoch, dass POP3 nur für einseitge Kommunikation von Server
+zu Client gedacht ist, dadurch kann es zu mehrmaligen Herunterladen von Mails oder
+dem Verlust von Mails kommen. IMAP hingegen ist für Zwei-Wege-Kommunikation zwischen
+Server und Clients und hält den Zustand aller Mails und Ordner in eurer Mailbox
+synchron.
+
+Bei der Authentifizierung gibt es viel Auswahl, aber "Automatisch erkennen" oder
+"Normales Passwort" ist die beste Wahl, vorausgesetzt dass ihr SSL eingeschaltet
+habt, was ihr *unbedingt* tun solltet, dabei ist STARTTLS SSL/TLS falls möglich
+vorzuziehen, da STARTTLS explizit TLS als Transportverschlüsselung verlangt und
+SSL/TLS auch SSL nehmen könnte. Warum ist das wichtig? TLS ist die spätere Version
+des SSL-Protokolls und sicherer.
+
+Das Fenster zur Konteneinrichtung ist leider auch etwas buggy. Zwar kann man die
+Ports zwischen ein paar Voreinstellungen wechseln, leider ist die Transportverschlüsselung
+immer fest an den Port gebunden, was in der Realität natürlich nicht so sein muss.
+Auch kann man die auf "Erweiterte Einstellungen" was einen direkt zu den Konteneinstellungen
+bringt wo man unter "Server-Einstellungen" und "Postausgang-Server (SMTP)" alles
+von Hand einstellen kann, erst klicken, nachdem man wirklich alle Felder in diesem
+Fenster von Hand verändert hat.
+
+Wenn ihr im Konteneinrichtungsfenster alles eingegeben habt, dann habt ihr es geschafft und
+Thunderbird so weit eingerichtet, das ihr es benutzen könnt. Ihr solltet jetzt
+folgendes sehen können (zumindest wenn ihr Alt drückt um die Menüleiste anzuzeigen).
+
+![Thunderbird Einstellungen](./img/tb_03.png)
+
+Falls ihr das obere Fenster so nicht sehen könnt, dann müsst ihr auf das entsprechende
+Mailkonto klicken, was in obigen Bild rot eingerahmt ist.
+
+Als nächstes wollen wir die wichtigsten Optionen von Thunderbird bearbeiten.
+Leider sind diese über die Konten-Einstellungen und die globalen Einstellungen
+von Thunderbird verstreut. Wir werden mit den Konteneinstellungen anfangen, diese
+sind im obigen Bild grün eingerahmt.
+
+Als erstes solltet ihr die Startseite der Konten-Einstellungen sehen. Dort könnt
+ihr sowohl den Namen als auch die E-Mail-Adresse des Kontos ändern.
+
+![Konteneinstellungen allgemein](./img/tb_04.png)
+
+
 ![fig05](./img/tb_05.png)
 ![fig06](./img/tb_06.png)
 ![fig07](./img/tb_07.png)
