@@ -155,7 +155,8 @@ Posteingangsserver), Hostname von IMAP- und SMTP-Server, ihre Ports, die SSL-Ein
 und die Art der Authentifizierung sowie euren Usernamen für den Mailserver
 einstellen
 
-Hier eine Liste von Beispieleinstellungen für ein paar Unis:
+Hier eine Liste von Beispieleinstellungen für ein paar Unis, für den unwahrscheinlichen
+Fall, dass eure Uni nicht in der Datenbank von Thunderbird ist:
 
 Uni | Anleitung
 ----|----------
@@ -168,12 +169,14 @@ TU München  | https://portal.mytum.de/faq/it-dienste/email2/imap
 Universität Potsdam | http://www.zeik.uni-potsdam.de/internet/mail.html
 
 Ein Kommentar zu den Einstellungen: IMAP ist auf jeden Fall vor POP3 zu bevorzugen.
-Bei IMAP liegen eure Mails dauerhaft auf dem Mailserver, mit POP3 werden sie vo,
-Mailserver heruntergeladen und verschwinden von dort. Beides hat Vor- und Nachteile.
-Zwar liegen bei IMAP eure Mails auf einem Server, aber dafür liegen eure Mails auf
-einem Server. Das ist nicht nur ein gutes Backup, sondern ermöglicht auch eure
-Mails zwischen mehreren Clients synchron zu halten und Smartphones und Tablets sei
-Dank hat heute jeder mehrere Clients.
+Bei IMAP liegen eure Mails dauerhaft auf dem Mailserver, mit POP3 werden sie vom,
+Mailserver heruntergeladen und verschwinden von dort.
+
+Beides hat Vor- und Nachteile. Zwar liegen bei IMAP eure Mails auf einem Server,
+aber dafür liegen eure Mails auf einem Server. Das ist nicht nur ein gutes Backup,
+sondern ermöglicht auch eure Mails zwischen mehreren Clients synchron zu halten
+und Smartphones und Tablets sei Dank hat heute jeder mehrere Clients.
+
 Viel wichtiger ist jedoch, dass POP3 nur für einseitge Kommunikation von Server
 zu Client gedacht ist, dadurch kann es zu mehrmaligen Herunterladen von Mails oder
 dem Verlust von Mails kommen. IMAP hingegen ist für Zwei-Wege-Kommunikation zwischen
@@ -185,10 +188,14 @@ Bei der Authentifizierung gibt es viel Auswahl, aber "Automatisch erkennen" oder
 habt, was ihr *unbedingt* tun solltet, dabei ist STARTTLS SSL/TLS falls möglich
 vorzuziehen, da STARTTLS explizit TLS als Transportverschlüsselung verlangt und
 SSL/TLS auch SSL nehmen könnte. Warum ist das wichtig? TLS ist die spätere Version
-des SSL-Protokolls und sicherer.
+des SSL-Protokolls und sicherer. Warum ist "Normales Passwort" sicher, warum nicht
+"Verschlüsselts Passwort"? Ganz einfach, mit Hilfe von TLS ist die übertragung des
+Paswortes schon verschlüsselt, während die Übertragung eines verschlüsselten Passwortes
+für den früher normalen Fall von unverschlüsselten Verbindungen zwischen Mailserver
+und Client gedacht war.
 
-Das Fenster zur Konteneinrichtung ist leider auch etwas buggy. Zwar kann man die
-Ports zwischen ein paar Voreinstellungen wechseln, leider ist die Transportverschlüsselung
+Das Fenster zur Konteneinrichtung ist leider etwas buggy. Zwar kann man die Ports
+zwischen ein paar Voreinstellungen wechseln, leider ist die Transportverschlüsselung
 immer fest an den Port gebunden, was in der Realität natürlich nicht so sein muss.
 Auch kann man die auf "Erweiterte Einstellungen" was einen direkt zu den Konteneinstellungen
 bringt wo man unter "Server-Einstellungen" und "Postausgang-Server (SMTP)" alles
@@ -209,20 +216,96 @@ Leider sind diese über die Konten-Einstellungen und die globalen Einstellungen
 von Thunderbird verstreut. Wir werden mit den Konteneinstellungen anfangen, diese
 sind im obigen Bild grün eingerahmt.
 
-Als erstes solltet ihr die Startseite der Konten-Einstellungen sehen. Dort könnt
-ihr sowohl den Namen als auch die E-Mail-Adresse des Kontos ändern.
+Als erstes solltet ihr die Startseite der Konten-Einstellungen sehen.
 
 ![Konteneinstellungen allgemein](./img/tb_04.png)
 
+Hier könnt ihr sowohl den Namen als auch die E-Mail-Adresse des Kontos ändern oder
+eine Signatur hinzufügen. Außerdem könnt ihr hier im rot eingerahmten Feld weitere
+Identitäten einfügen, die ihr dann als Absender für eure Mails benutzen könnt.
 
-![fig05](./img/tb_05.png)
-![fig06](./img/tb_06.png)
-![fig07](./img/tb_07.png)
-![fig08](./img/tb_08.png)
-![fig09](./img/tb_09.png)
-![fig10](./img/tb_10.png)
-![fig11](./img/tb_11.png)
-![fig12](./img/tb_12.png)
+![Alias-Identitäten](./img/tb_05.png)
+
+Wir bearbeiten einfach mal die beispielhaft die Default-Identität, die beim Einrichten
+von Thunderbird erstellt wurde:
+
+![Identitaet konfigurieren](./img/tb_06.png)
+
+Während die Konteneinstellungen die "globalen" Einstellungen des Kontos beinhaltet,
+kann man diese Einstellungen benutzen um für jeden einzelen Alias spezifische Einstellungen
+für Namen und Emailadresse zu machen und am aller wichtigsten für das
+"Verfassen & Adressieren" (rot eingerahmt):
+
+![Verfassen und Adressieren Aliase](./img/tb_07.png)
+
+Das ist der richtige Moment um etwas über Mail-Etiquette zu reden:
+
+1. Schaltet HTML-Mails aus (rot eingerahmt). HTML-Mails sind eine furchtbare Pest
+   und seid ehrlich, wann habt ihr das letzte Mal den Font eurer Mail geändert
+   oder den Text in Regenbogenfarben gestaltet? Nie? Richtig.
+   Dafür erschwert HTML die Anzeige auf einfachen textbasierten Clients und
+   macht die Verschlüsselung mittels GPG schwieriger.
+   Solltet ihr jemals HTML-Mails versenden wollen, dann kann man sie einfach durch
+   das Drücken von Shift beim Anklicken von "Verfassen" für die gerade aktuelle Mail
+   anschalten.
+
+2. Antworten auf Mails beginnt man überlicherweise *über* zitierten Texten (blau
+   eingerahmt). Niemand möchte bei jeder Mail ganz nach unten scrollen müssen.
+
+Die selben Einstellungen kann man auch nochmal für alle Aliase eines Kontos unter
+"Verfassen & Adressieren" in den Konteneinstellungen machen:
+
+![Verfassen und Adressieren Konteneinstellungen](./img/tb_08.png)
+
+Von hier aus gehen wir direkt in die globalen Einstellungen (grün eingerahmt):
+
+![globale Einstellungen](./img/tb_09.png)
+
+Hierher kommt man alternativ auch über das Menü über Extras -> Einstellungen.
+Wir interessieren uns vornehmlich für die Reiter "Verfassen" und "Sicherheit",
+rot und grün eingerahmt. Fangen wir mit der Sicherheit an:
+
+![Sicherheit](./img/tb_10.png)
+
+Als erstes sollte man ein Master-Passwort setzen, da Thunderbird ansonsten alle
+Passwörter im Klartext speichert und bei einem einfachen Klick auf das Feld
+"Gespeicherte Passwörter" anzeigt.
+
+Unter "Verfassen" finden wir folgendes:
+
+![Verfassen](./img/tb_11.png)
+
+Die "Sende-Optionen" sind was uns interessiert. Dort kann man sehr kleinteilig
+einstellen an welche Adressen man HTML- und an welche man Reintext-Mails schicken
+möchte.
+
+Da wir natürlich nur Reintext-Mails schicken wollen, setzen wir dort über hinzufügen
+die Expression \*.\* als Wildcard um alle Namen für Domains auf einmal zu erfassen.
+Natürlich gilt immer die oben genannte Ausnahme (Shift beim Klicken von Verfassen)
+falls man doch wirklich mal eine HTML-Mail verschicken wollen sollte.
+
+Jetzt haben wir es geschafft. Wir sind mit den grundlegenden Einstellungen von
+Thunderbird fertig.
+
+# Krypto!
+
+## GPG installieren
+
+Um jetzt zur Krypto zu kommen, müssen wir erstmal GPG installieren. Unter Windows
+läd man sich dafür [GPG4Win](http://www.gpg4win.org/) herunter und installiert es.
+Unter Linux ist das ganze etwas einfacher, denn GPG wird von allen großen Distribution
+zur Signierung ihrer Pakete verwendet und ist deswegen schon installiert.
+Unter Mac OS X muss man zu [GPGTools](https://gpgtools.org/) greifen.
+
+Nachdem wir GPG4Win (oder Äquivalent) installiert haben, installieren wir nun Enigmail.
+Enigmail ist das Addon das Thunderbird als Wrapper für GPG benutzt. Dafür gehen
+wir unter Extras im Hauptmenü in das Add-on Menü und suchen nach Enigmail,
+installieren es und starten anschließen Thunderbird neu.
+
+![Enigmail Addon](./img/tb_12.png)
+
+## Schlüssel machen
+
 ![fig13](./img/tb_13.png)
 ![fig14](./img/tb_14.png)
 ![fig15](./img/tb_15.png)
@@ -270,17 +353,6 @@ ihr sowohl den Namen als auch die E-Mail-Adresse des Kontos ändern.
 ![fig57](./img/tb_57.png)
 ![fig58](./img/tb_58.png)
 
-# Krypto!
-
-## GPG installieren
-
-Um jetzt zur Krypto zu kommen, müssen wir erstmal GPG installieren. Unter Windows
-läd man sich dafür [GPG4Win](http://www.gpg4win.org/) herunter und installiert es.
-Unter Linux ist das ganze etwas einfacher, denn GPG wird von allen großen Distribution
-zur Signierung ihrer Pakete verwendet und ist deswegen schon installiert.
-Unter Mac OS X muss man zu [GPGTools](https://gpgtools.org/) greifen.
-
-## Schlüssel machen
 
 ## Mails signieren
 
