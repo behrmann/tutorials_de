@@ -304,12 +304,10 @@ Enigmail ist das Addon das Thunderbird als Wrapper für GPG benutzt. Dafür gehe
 wir unter Extras im Hauptmenü in das Add-on Menü und suchen nach Enigmail,
 installieren es und starten anschließen Thunderbird neu.
 
-![Enigmail Addon](./img/tb_13.png)
+![Enigmail Addon](./img/tb_14.png)
 
 ## Schlüssel machen
 
-
-![fig14](./img/tb_14.png)
 ![fig15](./img/tb_15.png)
 ![fig16](./img/tb_16.png)
 ![fig17](./img/tb_17.png)
