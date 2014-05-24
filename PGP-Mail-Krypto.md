@@ -406,7 +406,7 @@ Beim Klicken auf das rot eingerahmte Feld klickt, öffnet sich die Schlüsselver
 
 ![Schluesselverwaltung](./img/tb_24.png)
 
-Als erstes sollten wir das Hákchen bei `Standardmäßig alle Schlüssel anzeigen`
+Als erstes sollten wir das Häkchen bei `Standardmäßig alle Schlüssel anzeigen`
 setzen, damit wir auch immer alle Schlüssel sehen, aber was uns am meisten interessiert
 ist das Erzeugen-Menu:
 
@@ -471,13 +471,106 @@ und wir sehen nun unseren Schlüssel in der Schlüsselverwaltung
 
 ## Was man über den Schlüssel wissen und was man mit ihm tun kann
 
-![fig31](./img/tb_31.png)
-![fig32](./img/tb_32.png)
-![fig33](./img/tb_33.png)
-![fig34](./img/tb_34.png)
-![fig35](./img/tb_35.png)
-![fig36](./img/tb_36.png)
-![fig37](./img/tb_37.png)
+Wie haben jetzt also einen Schlüssel, was können wir damit tun? Wir können jetzt
+unsere Mails signieren und Leute können uns verschlüsselte Mails schicken;
+vorausgesetzt sie haben unseren Schlüssel. Wie kommen andere Leute nun an unseren
+Schlüssel? Über die bereits erwähnten Keyserver, die wie Telefonbücher für
+PGP-Schlüssel sind.
+
+Durch das Hochladen eines Keys auf den Keyserver veröffentlicht man seinen öffentlichen
+Schlüssel (und nur diesen) mit allen damit verbundenen Informationen:
+
+1. Schlüssel-ID
+2. Alle Benutzerinformationen des Schlüssels (Namen, Emailadressen)
+3. Nutzerfoto (wenn man eines an den Schlüsselangehangen hat)
+
+Der erste der Punkte ist noch harmlos, aber zweiter und dritter Punkt sind Informationen,
+die vielleicht nicht jeder preisgeben möchte, vorallem in Anbetracht dessen, das ein
+Schlüssel der einmal im Netz war nie wieder zurückgeholt werden kann, auch nicht
+durch Widerruf.
+
+Gleichzeitig macht man es anderen Leuten bedeutend schwerer mit einem verschlüsselt
+zu kommunizieren oder die eigenen Signaturen zu überprüfen, wenn man seinen öffentlichen
+Schlüssel nicht möglicht breit veröffentlicht.
+
+Schlussendlich muss man selbst entscheiden, wie man seine Schlüssel handlen will
+und wie viel Informationen man an sie dranhängt (z.B. fast niemand hängt ein Foto an),
+ich würde die Benutzung von Keyservern jedoch empfehlen.
+
+![Kontextmenu fuer Schluessel](./img/tb_31.png)
+
+Wie läd man seinen Schlüssel nun auf einen Keyserver? Durch Klicken auf
+`Auf Schlüssel-Server hochladen...` was oben grün eingerahmt ist. Wenn man die
+Schlüssel anderer Leute hat kann man diese auch mittels `Von Schlüssel-Server aktualisieren...`
+updaten um zu sehen ob der Nutzer neue Benutzer-IDs hinzugefügt hat, neue Signaturen
+hat oder der Schlüssel vielleicht zurückgerufen wurde.
+
+Wie kann ich sehen, was für Informationen an meinem Schlüssel hängen? Ganz einfach,
+inde man auf `Schlüsseleigenschaften` klickt, was im obigen Bild rot eingerahmt ist.
+
+Nach dem Klick taucht das Fenster mit den Schlüsseleigenschaften auf:
+
+![Schluesseleigenschaften](./img/tb_32.png)
+
+Was sehen wir hier? Als aller erstes sehen wir die `Primäre Benutzer-ID`, was derzeit
+die ist, für die wir den Schlüssel erstellt haben. Darauf folgt die Schlüssel-ID
+eine in hexadezimal geschriebene (leider nicht notwendig eindeutige, aber fast eindeutige)
+Zahl, die als kurze Identifikation eures Schlüssels dient.
+
+Das nächste ist der Typ des Schlüssels, der in diesem Fall `Schlüsselpaar` ist,
+weil wir sowohl im Besitz des öffentlichen als auch des privaten Schlüssels sind.
+Hätten wir nur den öffentlichen Schlüssel, dann würde dort `öffentlich` stehen.
+
+Die Schlüsselgültigkeit sagt aus wie sehr ihr *diesem Schlüssel* vertraut, also
+z.B. gar nicht (der Wert dafür ist *unbekannt*) oder doch (falls ihr den Schlüssel
+unterschrieben habt) oder *absolut* falls er euch gehört oder *Widerrufen* falls er
+das ist.
+
+Das Besitzervertrauen gibt an wie sehr ihr *dem Besitzer des Schlüssels* vertraut,
+genauer seiner Fähigkeit die Identität anderer Leute zu überprüfen, was dann wichtig
+wird wenn es darum geht ob wir den Schlüsseln anderer Leute vertrauen, aber dazu
+später mehr.
+
+Der Fingerabdruck zu guter Letzt ist eine sehr lange hexadezimale Zahl, ein Hash,
+der unseren Schlüssel identifiziert. Ein genauerer Blick zeigt uns, dass die Schlüssel-ID
+die letzten acht Zeichen des Fingerabdrucks sind.
+
+Darüber hinaus sehen wir noch die Liste der weiteren Benutzer-IDs, von denen wir
+derzeit keine haben, und die Liste der Schlüsselteile. Was sind Schlüsselteile?
+Zu sagen, das ein Schlüsselpaar nur ein ein öffentlicher und ein privater Schlüssel
+sind, ist eine, wie Terry Pratchet es nennen würde, "Lie to Children" um die Realität
+begreifbar zu machen. Die Wahrheit ist, das ein Schlüsselpaar mehrere Schlüssel,
+sogenannte Subkeys, für verschiedene Aufgaben (vorhält). Dazu vielleicht in einer
+späteren Version dieses Tutorials mehr.
+
+Fügen wir doch jetzt aber erstmal noch eine Benutzer-ID hinzug, dafür klicken wira
+auf `Aktion wählen...`
+
+![Schluesselaktionen](./img/tb_33.png)
+
+und dort auf `Benutzer-IDs verwalten...`, woraufhin wir mit einem Fenster begrüßt
+werden, das strukturell schon wie das der Thunderbirds-Identitätsverwaltung aussieht,
+die wir weiter oben schon beschrieben haben.
+
+![Schluessel-Benutzer-IDs](./img/tb_34.png)
+
+Sie funktioniert auch ähnlich, nur das wir nach ausfüllen des Hinzufügen-Fensters
+
+![Benutzer-ID hinzufuegen](./img/tb_35.png)
+
+noch einmal unsere Passphrase eingeben müssen, woraufhin wir fertig sind:
+
+![Schluessel-Benutzer-IDs 2](./img/tb_36.png)
+
+Die neue Benutzer-ID erscheint nun auch in der Liste in den Schlüsseleigenschaften.
+
+![Schluesseleigenschaften 2](./img/tb_37.png)
+
+Um die neue Benutzer-ID auch zu benutzen, muss man allerdings noch eine entsprechende
+Identität mit der Identitätverwaltung anlegen.
+
+## Mails signieren und verschlüsseln
+
 ![fig38](./img/tb_38.png)
 ![fig39](./img/tb_39.png)
 ![fig40](./img/tb_40.png)
@@ -500,8 +593,201 @@ und wir sehen nun unseren Schlüssel in der Schlüsselverwaltung
 ![fig57](./img/tb_57.png)
 ![fig58](./img/tb_58.png)
 
+```
+Message-ID: <537F8379.50609@bhaal.de>
+Date: Fri, 23 May 2014 19:20:57 +0200
+From: Marianne Mustermann <mustermann@bhaal.de>
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.5.0
+MIME-Version: 1.0
+To: adele-en@gnupp.de
+Subject: My first signed message
+X-Enigmail-Version: 1.6
+Content-Type: multipart/signed; micalg=pgp-sha1;
+ protocol="application/pgp-signature";
+ boundary="NuT79Xx3vG1x8KSdDAqkK5OE0wwg4WvVO"
 
-## Mails signieren und verschlüsseln
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--NuT79Xx3vG1x8KSdDAqkK5OE0wwg4WvVO
+Content-Type: multipart/mixed;
+ boundary="------------030906060204070401060401"
+
+This is a multi-part message in MIME format.
+--------------030906060204070401060401
+Content-Type: text/plain; charset=ISO-8859-15
+Content-Transfer-Encoding: quoted-printable
+
+Hello Adele, can you read my message?
+
+--------------030906060204070401060401
+Content-Type: application/pgp-keys;
+ name="0xEC16A061.asc"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+ filename="0xEC16A061.asc"
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.22 (MingW32)
+
+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
+PYtCx9ATPQ=3D=3D
+=3DDbgb
+-----END PGP PUBLIC KEY BLOCK-----
+
+--------------030906060204070401060401--
+
+--NuT79Xx3vG1x8KSdDAqkK5OE0wwg4WvVO
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (MingW32)
+Comment: Using GnuPG with Thunderbird - http://www.enigmail.net/
+
+iQIcBAEBAgAGBQJTf4OKAAoJEOY1wjDsFqBhuW0P/3lcrpA6tOVRySqXVo++Yjfr
+oPrWV/EY65aN/HNJqtjj6iheoR4uo2jFB4lZM38ep7js3Mg+2HOkp7GfFESSIVbC
+if5IVYaiySBZaAxZEY3nbZmFOgEIJYv23uZmEEDjD65CECpIFXtBsQ074/H4dXyp
+U6Em22TClRk5OJEzCrMLFbPV5Grgma1zRAmkP0ZtyljBSemWR5pS2TgPo16IeOOc
+qWpk+51QMnZe3oFgvX08lI0kJF+RLSO/2tWtECjGdCbLBwGZhymNoksBg3DdSQUv
+VGK/SZNYDFhcY5/qPdsw2/nqXzngQkIuXxOyLjaH3QEIidHk924xKG8S3SdVaRg0
+Gy3Yzo/UWO6/YEnEpxTFKdhlqXE7scOUwP9XMFhzM3nyagsi9DczPwJDBPx2kvwd
+f/TWlAX0kR5x4cph93RSxYyfXVEJtA4OpHewxECo5wcdIimhuA6GdSBmcbl6A0rR
+ZW67UUZzr80iFMPuqw5xoSvYhwL+a+V4b87jEm/+6F/vh2yPthj26CeMfHIBTHOw
+EfigoScY06mnp5rNeiX3WwYi6qjJvBQs/DOfq1yAezPK0cRFpeiZXr6F0djeH2ad
+4QhZnXSaUftZ9f7gx08Ng2LU+gDnfVW6LDqJ6MJYa5ST75mpz8SFcpW2W5uKg5sK
+UOkaRn9eRcNSvQmpNGQ1
+=Q2fZ
+-----END PGP SIGNATURE-----
+
+--NuT79Xx3vG1x8KSdDAqkK5OE0wwg4WvVO--
+```
+
+```
+Return-Path: <adele-en@gnupp.de>
+X-Original-To: mustermann@bhaal.de
+Delivered-To: mustermann@bhaal.de
+Received: from mx2.gerwinski.de (mx2.gerwinski.de [88.198.170.58])
+	by mail.bhaal.de (Postfix) with ESMTPS id 4E66414C092
+	for <mustermann@bhaal.de>; Fri, 23 May 2014 19:27:11 +0200 (CEST)
+Received: from adele-robot.gerwinski.de ([192.168.12.7] helo=adele-robot)
+	by m31.gerwinski.de with esmtps (TLS1.0:RSA_AES_256_CBC_SHA1:32)
+	(Exim 4.72)
+	(envelope-from <adele-en@gnupp.de>)
+	id 1WntFK-0001KR-UM
+	for mustermann@bhaal.de; Fri, 23 May 2014 19:27:09 +0200
+Received: from localhost ([127.0.0.1] helo=adele-robot)
+	by adele-robot with esmtp (Exim 4.72)
+	(envelope-from <adele-en@gnupp.de>)
+	id 1WntHA-0005WN-Us
+	for mustermann@bhaal.de; Fri, 23 May 2014 19:29:01 +0200
+To: mustermann@bhaal.de
+Subject: Re: My first encrypted Message
+Date: Fri, 23 May 2014 19:29:00 +0200
+Message-ID:
+	<1400866140.21216.383603@adele-robot>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+From: Adele (The friendly OpenPGP email robot)
+	<adele-en@gnupp.de>
+References: <537F84E3.8040803@bhaal.de>
+User-Agent: Adele 1.0
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+hQIMA0LNZqoNiNn2ARAAsVYIbIqUBfcyo1wBJBCVVahUSUHZK9ExP5gHeX46XElr
+wsXplk75fbzA4xdv83LoBBxuJQ9WGlxrLXirjv6siOWCWBuIOF/CzWCSEx7n4wb0
+VvmQ814D6ujOZ5Z4gWrRR5Ocas7kWgx8xXLeJ/ngKn3RgbpbSdwM8nBhWzWtUagY
+EIbHRoLdBABtGif051y8ECFazyX6aI+FU0eoCxPG2B6oYwZXNt29yKG8zuaurXjD
+vFSYuIPMIkfBylnm1DMeaflFZC0TGw5dvOx8FxHT2EsYzi2jhRZnC30jd2VkzLWv
+1Kaj8YY1YzWMxuWcc4lG1tnd7K30grAcehm3hAKNwEX7aQr/mYl5W/o/zMt51Jz/
+Z9K2zb9naoxHvHvUBs7YSZnv4AIP+rcw1Pc5Wk61hRUnDDpzJ2bANhuOvy1m8XUb
+Ayqjpz3D9gnU3/EjUiYoN29ao/z1zLzQxZo2t4EIJS7kEnd8R+SnA2zPnch9ByrF
+s3VCYiyA4sqNSAXvGbicZBwbU7WkDR2QH8jFcvyPfNuWUE5ZBw/GQJPJ9xD4F5Hg
+k/buC2npnilniCmffPfRwotcKHMPPvTDMqBEGUrAKFxep5nEWlQKJmf+fzOdBAYp
+KraRXicgHRkLB0MBVk5Jp+ajO4pa1VSR2zgG8vIEz4L2UUaMBqskGsmmHtdn8SnS
+wPoBZFUCIAHOlIHUkdpvb+GFBWUGp3OicXUh+jBfGLHh0djWrMSSCPUQM9INDoQG
+JGOulzcb9XC528h7yeSyAvNNFUs3HBHZ+GPciySxm++0HesqBRTJMVYk0HLav3hk
+qBuUw7b0mUSSmk/CKIkHbmcM4MYa4EETfCDwQ8+kcC9T6jxZwaytBdEB+5uuhzVE
+9LxwKjymuu9PgeihFDn+I2C4ztDBDwyYBzriE/rsnHALTPHFlnRthNX7rnYQePVg
+gBFOuSD//lj78dhdSloPddnWDz7sbTQ6Cu1BbIzgcCbQEM2mdLf8oD8oj2fJFd9B
+MDPYCLXoe9og5mBPf7q7nao5tRUMBGyVDAqNcoTFXGxEvxQgnRzlXGpcUze1L/UY
+zgeLQir1nErrpshg0kMUqiZxZ//EulBl515l4DyVEz0QZ0iZC3lbbXv3iV+otTG+
+vIF62FIJuqgknhzcnLlIXMoXFniZUae4YWRqZ5vcbnQNg6kAS5YxcP/0rLaStQTB
+Ez5shRRu8UOwXH3pB/NEUeBMAVFUViIH3C5r7Cm9NmZFLq85FyGfi4E7BuVw8KU9
+WOcyLRY1EM+EGUuI
+=dSII
+-----END PGP MESSAGE-----
+
+----------------------------------------------------------------------
+NOTE: This email is sent automatically by Adele, the friendly OpenPGP
+email robot, in reply to a received email. If you did not write to
+<adele-en@gnupp.de>, then someone might have abused your address.
+If you feel annoyed by this email, and in other cases of data
+abuse, please write to <adele-abuse@gnupp.de>.
+Adele is a service of G-N-U GmbH <http://www.g-n-u.de>.
+----------------------------------------------------------------------
+```
+
 
 # Vertrauen
 
