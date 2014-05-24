@@ -1,14 +1,14 @@
 Email-Verschlüsselung mit GPG
 =============================
 
-Dieses Tutorial wird erklären wie und warum) man Emails mit GPG (=GNU Privacy Guard,
-eine freie Implementation von PGP=Pretty Good Privacy) verschlüsseln kann und
-sollte.
+Dieses Tutorial wird erklären wie (und warum) man Emails mit GPG (=GNU Privacy Guard,
+eine freie Implementation von PGP=Pretty Good Privacy) verschlüsseln kann (und
+sollte).
 
 PGP ist wohl die ausgereifteste Lösung zur sicheren Kommunikation per Email und
 auf allen gängigen Plattformen (GNU/Linux, Windows, Mac OS X, Android, iOS, ...),
-wenn auch vielleicht mit ein paar Haken auf die wir entsprechend hinweisen werde,
-verfügbar.
+verfügbar wenn auch vielleicht mit ein paar Haken auf die wir entsprechend hinweisen
+werden.
 
 Die Benutzung von GPG ist vorallem wenn man damit anfängt etwas obskur, weswegen
 ich hoffe mit diesem Tutorial etwas Licht ins Dunkel zu bringen.
@@ -35,7 +35,7 @@ dass Werbung zielgerichteter geschaltet werden kann.
 Sehr gut, nur leider ist das nur ein Tropfen auf den heißen Stein. Erstmal
 bedeutet das nur, dass die Kommunikation zwischen dir und deinem Mailserver
 verschlüsselt ist, über die Kommunikation zwischen den Mailserver verschiedener
-Anbieter sagt das leider erstmal nichts aus; diese war bis vor kurzem meist
+Anbieter sagt das leider erstmal nichts aus. Diese war bis vor kurzem meist
 unverschlüsselt und das hebelt die Verschlüsselung insgesamt aus, da diese immer
 nur so stark ist, wie ihr schwächstes Glied.
 
@@ -48,8 +48,8 @@ Stellen die Herausgabe der Schlüssel verlangen können.
 
 Zwar gibt es Lösungsansätze für all diese Probleme: Perfect Forward Secrecy
 ermöglicht, dass erbeutete SSL-Schlüssel nicht dazu genutzt werden können
-zurückliegenden Datenverkehr zu entschlüsseln, DANE löst das Probleme, das einem
-falsche Schlüssel untergeschoben werden, allerdings werden diese Lösungen noch
+zurückliegenden Datenverkehr zu entschlüsseln, DANE löst das Problem, das einem
+falsche Schlüssel untergeschoben werden. Allerdings werden diese Lösungen noch
 nicht überall unterstützt, DANE z.B. erst von einem *einzigen* Mailprovider
 überhaupt (Posteo).
 
@@ -80,6 +80,10 @@ Unwahrscheinlich, wenn man bedenkt, dass der soziale Graph für die gesamte
 Menschhehit nur einen Durchmesser von 5 oder 6 haben soll, also nur noch zwei
 oder drei Verbindungen mehr.
 
+Zwar wurde Seitens der US-Amerikanischen Regierung versichert, diese Untersuchungen in
+Zukunft auf eine Tiefe von 2 zu beschränken, in wieweit diese Aussage aber vertrauenswürdig
+ist, sei an dieser Stelle als Hausaufgabe gelassen.
+
 ## Sonst noch was?
 
 Außer zur Verschlüsselung, erfüllt PGP noch einen anderen Hauptnutzen: Authentifizierung.
@@ -87,8 +91,8 @@ Außer zur Verschlüsselung, erfüllt PGP noch einen anderen Hauptnutzen: Authen
 Woher weis ich eigentlich, das Mails von meinem Kumpel auch von ihm kommen, oder
 wichtiger, Mails von meiner Bank?
 
-Ich weis es nicht (so lange die Mails nicht signiert sind), da Absender von Mails
-trivial zu fälschen sind. Warum? Mails sind einfache Textdateien, der Absender
+Ich weis es nicht, da Absender von Mails trivial zu fälschen sind. Warum? Mails sind
+einfache Textdateien, der Absender
 ist einfach ein Eintrag
 ```
 From: user@host.com
@@ -198,7 +202,7 @@ und Client gedacht war.
 Das Fenster zur Konteneinrichtung ist leider etwas buggy. Zwar kann man die Ports
 zwischen ein paar Voreinstellungen wechseln, leider ist die Transportverschlüsselung
 immer fest an den Port gebunden, was in der Realität natürlich nicht so sein muss.
-Auch kann man die auf `Erweiterte Einstellungen` was einen direkt zu den Konteneinstellungen
+Auch kann man die auf `Erweiterte Einstellungen`, was einen direkt zu den Konteneinstellungen
 bringt wo man unter `Server-Einstellungen` und `Postausgang-Server (SMTP)` alles
 von Hand einstellen kann, erst klicken, nachdem man wirklich alle Felder in diesem
 Fenster von Hand verändert hat.
@@ -311,8 +315,8 @@ Nach dem Neustart sollte dieses Fenster aufpoppen:
 
 ![Assistent](./img/tb_16.png)
 
-Dieser kann eigentlich alle Einstellungen zu machen, die wir gleich machen wollen
-leider hatte er (zumindest in der Vergangenheit) ein paar Beschränkungen, z.B.
+Dieser kann eigentlich alle Einstellungen zu machen, die wir gleich machen wollen.
+Leider hatte er (zumindest in der Vergangenheit) ein paar Beschränkungen, z.B.
 in der Schlüssellänge, so dass wir lieber alles von Hand machen, was auch den
 Vorteil hat, dass wir die Einstellungen kennenlernen.
 
@@ -352,9 +356,9 @@ eigenen verschlüsselt wird.
 
 Wie wir oben schon genauer beschrieben haben, kann ein Text, der mit einem
 öffentlichen Schlüssel verschlüsselt wurde, nur mit dem zugehörigen privaten
-Schlüssel wieder entschlüsselt werden kann. Folglich könntet ihr nach der
+Schlüssel wieder entschlüsselt werden. Folglich könntet ihr nach der
 Verschlüsselung ohne Nutzung dieser Option eure von euch selbst verschickten
-Mails nicht mehr lesen können.
+Mails nicht mehr lesen.
 
 Die grüne Option dreht sich auch um Verschlüsselung. Wenn diese Option nicht gesetzt
 ist, dann könnte ihr verschlüsselte Mails nur an andere PGP-Nutzer schicken, deren
@@ -377,7 +381,7 @@ Die erweiterten Einstellungen haben in der Standardeinstellung folgende Häkchen
 Die meisten Einstellungen sind relativ selbsterklärend.
 Die ersten Option regelt das automatische signierte/verschlüsselte Antworten auf
 signierte/verschlüsselte Mails, und die zweite fügt in alle Mails einen zusätzlichen
-Header ein, der anzeigt, dass man Enigmail benutzt. Wenn man das möchte kann man
+Header ein, der anzeigt, dass man Enigmail benutzt. Wenn man das nicht möchte kann man
 das getrost abschalten.
 
 Zu guter letzt die Liste der Schlüssel-Server:
@@ -392,7 +396,7 @@ dann hat man in Zukunft die Auswahl zwischen allen Server in dieser Liste.
 Der wichtigste Server ist `pool.sks-keyservers.net`. Dieser ist kein einzelner
 Server, sondern ein Pool mehrer Server die alle Schlüssel zwischen sich austauschen,
 wodurch sie insgesamt am aktuellsten sind. Ein weiterer großer Server, der auch
-Teil des SKS-Pools ist, ist `pgp.mit.eud`.
+Teil des SKS-Pools ist, ist `pgp.mit.edu`.
 
 So, nachdem wir nun durch die allgemeinen PGP-Einstellungen durch sind, kommen wir
 zum interessante Teil des Abends: Wir machen uns einen Schlüssel und benutzen ihn.
@@ -421,7 +425,7 @@ Der erste Punkt der etwas genauer überdacht werden muss, ist die Gültigkeit de
 Schlüssels. Prinzipiell ist es sinnvoll seinen Schlüssel nach einer gewissen Zeit
 zu wechseln, aber eine endliche Laufzeit kann das Problem haben, dass man sie vergisst
 und dann nach ein paar Jahren ohne Schlüssel dasteht. Ein Schlüssel mit beliebiger
-Laufzeit verleitet aber auch dazu ihn beliebig lange zu nutzen. Das hier sit eine
+Laufzeit verleitet aber auch dazu ihn beliebig lange zu nutzen. Das hier ist eine
 Frage die man für sich selbst klären muss.
 
 Der deutlich wichtigere Reiter in diesem Fenster ist aber `Erweitert`
@@ -495,7 +499,7 @@ zu kommunizieren oder die eigenen Signaturen zu überprüfen, wenn man seinen ö
 Schlüssel nicht möglicht breit veröffentlicht.
 
 Schlussendlich muss man selbst entscheiden, wie man seine Schlüssel handlen will
-und wie viel Informationen man an sie dranhängt (z.B. fast niemand hängt ein Foto an),
+und wie viel Informationen man an sie dranhängt (z.B. hängt fast niemand ein Foto an),
 ich würde die Benutzung von Keyservern jedoch empfehlen.
 
 ![Kontextmenu fuer Schluessel](./img/tb_31.png)
@@ -504,7 +508,7 @@ Wie läd man seinen Schlüssel nun auf einen Keyserver? Durch Klicken auf
 `Auf Schlüssel-Server hochladen...` was oben grün eingerahmt ist. Wenn man die
 Schlüssel anderer Leute hat kann man diese auch mittels `Von Schlüssel-Server aktualisieren...`
 updaten um zu sehen ob der Nutzer neue Benutzer-IDs hinzugefügt hat, neue Signaturen
-hat oder der Schlüssel vielleicht zurückgerufen wurde.
+hat oder der Schlüssel vielleicht widerrufen wurde.
 
 Wir werden unseren Schlüssel jetzt nicht auf einen Keyserver laden, da kein Mensch
 zu diesem Schlüssel existiert, müssen wir die Keyserver auch nicht vollmüllen.
@@ -544,10 +548,10 @@ derzeit keine haben, und die Liste der Schlüsselteile. Was sind Schlüsselteile
 Zu sagen, das ein Schlüsselpaar nur ein ein öffentlicher und ein privater Schlüssel
 sind, ist eine, wie Terry Pratchet es nennen würde, "Lie to Children" um die Realität
 begreifbar zu machen. Die Wahrheit ist, das ein Schlüsselpaar mehrere Schlüssel,
-sogenannte Subkeys, für verschiedene Aufgaben (vorhält). Dazu vielleicht in einer
+sogenannte Subkeys für verschiedene Aufgaben vorhält. Dazu vielleicht in einer
 späteren Version dieses Tutorials mehr.
 
-Fügen wir doch jetzt aber erstmal noch eine Benutzer-ID hinzug, dafür klicken wira
+Fügen wir doch jetzt aber erstmal noch eine Benutzer-ID hinzug. Dafür klicken wir
 auf `Aktion wählen...`
 
 ![Schluesselaktionen](./img/tb_33.png)
