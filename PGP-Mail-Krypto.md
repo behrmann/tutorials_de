@@ -505,6 +505,9 @@ Schlüssel anderer Leute hat kann man diese auch mittels `Von Schlüssel-Server 
 updaten um zu sehen ob der Nutzer neue Benutzer-IDs hinzugefügt hat, neue Signaturen
 hat oder der Schlüssel vielleicht zurückgerufen wurde.
 
+Wir werden unseren Schlüssel jetzt nicht auf einen Keyserver laden, da kein Mensch
+zu diesem Schlüssel existiert, müssen wir die Keyserver auch nicht vollmüllen.
+
 Wie kann ich sehen, was für Informationen an meinem Schlüssel hängen? Ganz einfach,
 inde man auf `Schlüsseleigenschaften` klickt, was im obigen Bild rot eingerahmt ist.
 
@@ -571,27 +574,53 @@ Identität mit der Identitätverwaltung anlegen.
 
 ## Mails signieren und verschlüsseln
 
-![fig38](./img/tb_38.png)
-![fig39](./img/tb_39.png)
-![fig40](./img/tb_40.png)
-![fig41](./img/tb_41.png)
-![fig42](./img/tb_42.png)
+Kommen wir nun endlich zum Herzstück der ganzen Aktion dem signieren und dem
+Verschlüsseln.
+
+Bevor wir damit anfangen, brauchen wir jedoch einen Kommunikationspartner, der
+weis, wie man mit PGP umgeht, aber woher nehmen?
+
+Zu unserer Rettung kommt Adele, der freundlichen E-Mail-Roboter. Adele nimmt
+Mails mit öffentlichen Schlüsseln an und antwortet einem verschlüsselt auf diese.
+
+Gehen wir also zurück zur Schlüsselverwaltung und klicken auf `Schlüssel suchen...`
+
+![Schluesselsuche](./img/tb_38.png)
+
+Nach Eingabe des Suchbegriffes `Adele` bekommen wir mehrere Auswahlen von der wir
+die erste wählen
+
+![Auswahl der Schluessel](./img/tb_39.png)
+
+Nachdem wir `Ok` klicken kommt die Meldung, das wir Adeles Schlüssel erfolgreich
+importiert haben:
+
+![erfolgreicher Schluesselimport](./img/tb_40.png)
+
+Also los, verschicken wir usnere erste signierte Nachricht:
+
+![Verfassen erste signierte Nachricht](./img/tb_41.png)
+
+In der unteren rechten Ecke (rot umrandet) des Verfassen-Fensters koennen wir sehen,
+das wir die Mail signieren wollen (das Bleistift-Icon ist golden unterlegt), aber nicht
+verschlüsseln (das Schlüsselsymbol ist ausgegraut). Beides kann durch einfaches
+Klicken auf die Symbole gewechselt werden.
+
+Woher kennt Adele unseren öffentlichen Schlüssel? Sie kennt ihn nicht, aus diesem
+Grund hängen wir ihn an:
+
+![oeffentlichen Schluessel anhaengen](./img/tb_42.png)
 ![fig43](./img/tb_43.png)
 ![fig44](./img/tb_44.png)
+![fig60](./img/tb_60.png)
 ![fig45](./img/tb_45.png)
 ![fig46](./img/tb_46.png)
 ![fig47](./img/tb_47.png)
-![fig48](./img/tb_48.png)
-![fig49](./img/tb_49.png)
-![fig50](./img/tb_50.png)
-![fig51](./img/tb_51.png)
-![fig52](./img/tb_52.png)
-![fig53](./img/tb_53.png)
-![fig54](./img/tb_54.png)
 ![fig55](./img/tb_55.png)
 ![fig56](./img/tb_56.png)
 ![fig57](./img/tb_57.png)
 ![fig58](./img/tb_58.png)
+
 
 ```
 Message-ID: <537F8379.50609@bhaal.de>
@@ -794,6 +823,15 @@ Adele is a service of G-N-U GmbH <http://www.g-n-u.de>.
 ## Web of Trust
 
 ## Keysigning
+
+![fig48](./img/tb_48.png)
+![fig49](./img/tb_49.png)
+![fig50](./img/tb_50.png)
+![fig51](./img/tb_51.png)
+![fig52](./img/tb_52.png)
+![fig53](./img/tb_53.png)
+![fig54](./img/tb_54.png)
+![fig58](./img/tb_59.png)
 
 # Fortgeschrittenes
 
