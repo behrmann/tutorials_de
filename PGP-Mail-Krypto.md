@@ -137,7 +137,7 @@ Beim ersten öffnen, solltet ungefähr soetwas sehen:
 ![Thunderbird beim ersten Start](./img/tb_01.png)
 
 Da ihr von eurer Uni eine funktionierende Mailadresse bekommen habt oder schon eine
-habt, ist "Überspringen und meine existierende E-Mail-Adresse verwenden" die
+habt, ist `Überspringen und meine existierende E-Mail-Adresse verwenden` die
 richtige Wahl.
 
 Das führt euch zum folgenden Fenster:
@@ -183,13 +183,13 @@ dem Verlust von Mails kommen. IMAP hingegen ist für Zwei-Wege-Kommunikation zwi
 Server und Clients und hält den Zustand aller Mails und Ordner in eurer Mailbox
 synchron.
 
-Bei der Authentifizierung gibt es viel Auswahl, aber "Automatisch erkennen" oder
-"Normales Passwort" ist die beste Wahl, vorausgesetzt dass ihr SSL eingeschaltet
+Bei der Authentifizierung gibt es viel Auswahl, aber `Automatisch erkennen` oder
+`Normales Passwort` ist die beste Wahl, vorausgesetzt dass ihr SSL eingeschaltet
 habt, was ihr *unbedingt* tun solltet, dabei ist STARTTLS SSL/TLS falls möglich
 vorzuziehen, da STARTTLS explizit TLS als Transportverschlüsselung verlangt und
 SSL/TLS auch SSL nehmen könnte. Warum ist das wichtig? TLS ist die spätere Version
-des SSL-Protokolls und sicherer. Warum ist "Normales Passwort" sicher, warum nicht
-"Verschlüsselts Passwort"? Ganz einfach, mit Hilfe von TLS ist die übertragung des
+des SSL-Protokolls und sicherer. Warum ist `Normales Passwort` sicher, warum nicht
+`Verschlüsselts Passwort`? Ganz einfach, mit Hilfe von TLS ist die übertragung des
 Paswortes schon verschlüsselt, während die Übertragung eines verschlüsselten Passwortes
 für den früher normalen Fall von unverschlüsselten Verbindungen zwischen Mailserver
 und Client gedacht war.
@@ -197,8 +197,8 @@ und Client gedacht war.
 Das Fenster zur Konteneinrichtung ist leider etwas buggy. Zwar kann man die Ports
 zwischen ein paar Voreinstellungen wechseln, leider ist die Transportverschlüsselung
 immer fest an den Port gebunden, was in der Realität natürlich nicht so sein muss.
-Auch kann man die auf "Erweiterte Einstellungen" was einen direkt zu den Konteneinstellungen
-bringt wo man unter "Server-Einstellungen" und "Postausgang-Server (SMTP)" alles
+Auch kann man die auf `Erweiterte Einstellungen` was einen direkt zu den Konteneinstellungen
+bringt wo man unter `Server-Einstellungen` und `Postausgang-Server (SMTP)` alles
 von Hand einstellen kann, erst klicken, nachdem man wirklich alle Felder in diesem
 Fenster von Hand verändert hat.
 
@@ -231,10 +231,10 @@ von Thunderbird erstellt wurde:
 
 ![Identitaet konfigurieren](./img/tb_06.png)
 
-Während die Konteneinstellungen die "globalen" Einstellungen des Kontos beinhaltet,
+Während die Konteneinstellungen die `globalen` Einstellungen des Kontos beinhaltet,
 kann man diese Einstellungen benutzen um für jeden einzelen Alias spezifische Einstellungen
 für Namen und Emailadresse zu machen und am aller wichtigsten für das
-"Verfassen & Adressieren" (rot eingerahmt):
+`Verfassen & Adressieren` (rot eingerahmt):
 
 ![Verfassen und Adressieren Aliase](./img/tb_07.png)
 
@@ -246,14 +246,14 @@ Das ist der richtige Moment um etwas über Mail-Etiquette zu reden:
    Dafür erschwert HTML die Anzeige auf einfachen textbasierten Clients und
    macht die Verschlüsselung mittels GPG schwieriger.
    Solltet ihr jemals HTML-Mails versenden wollen, dann kann man sie einfach durch
-   das Drücken von Shift beim Anklicken von "Verfassen" für die gerade aktuelle Mail
+   das Drücken von Shift beim Anklicken von `Verfassen` für die gerade aktuelle Mail
    anschalten.
 
 2. Antworten auf Mails beginnt man überlicherweise *über* zitierten Texten (blau
    eingerahmt). Niemand möchte bei jeder Mail ganz nach unten scrollen müssen.
 
 Die selben Einstellungen kann man auch nochmal für alle Aliase eines Kontos unter
-"Verfassen & Adressieren" in den Konteneinstellungen machen:
+`Verfassen & Adressieren` in den Konteneinstellungen machen:
 
 ![Verfassen und Adressieren Konteneinstellungen](./img/tb_08.png)
 
@@ -262,20 +262,20 @@ Von hier aus gehen wir direkt in die globalen Einstellungen (grün eingerahmt):
 ![globale Einstellungen](./img/tb_09.png)
 
 Hierher kommt man alternativ auch über das Menü über Extras -> Einstellungen.
-Wir interessieren uns vornehmlich für die Reiter "Verfassen" und "Sicherheit",
+Wir interessieren uns vornehmlich für die Reiter `Verfassen` und `Sicherheit`,
 rot und grün eingerahmt. Fangen wir mit der Sicherheit an:
 
 ![Sicherheit](./img/tb_10.png)
 
 Als erstes sollte man ein Master-Passwort setzen, da Thunderbird ansonsten alle
 Passwörter im Klartext speichert und bei einem einfachen Klick auf das Feld
-"Gespeicherte Passwörter" anzeigt.
+`Gespeicherte Passwörter` anzeigt.
 
-Unter "Verfassen" finden wir folgendes:
+Unter `Verfassen` finden wir folgendes:
 
 ![Verfassen](./img/tb_11.png)
 
-Die "Sende-Optionen" sind was uns interessiert. Dort kann man sehr kleinteilig
+Die `Sende-Optionen` sind was uns interessiert. Dort kann man sehr kleinteilig
 einstellen an welche Adressen man HTML- und an welche man Reintext-Mails schicken
 möchte.
 
@@ -320,7 +320,7 @@ hinzugekommen ist:
 
 ![Neues Menu](./img/tb_15.png)
 
-Über das OpenPGP-Menu oben findet ihr die OpenPGP-Einstellungen:
+Über das OpenPGP-Menu oben findet ihr die Einstellungen:
 
 ![OpenPGP-Einstellungen](./img/tb_17.png)
 
@@ -338,7 +338,7 @@ Entschlüsseln einer Mail neu eingeben, da das aber etwas unkomfortabel sein kan
 kann man die Passphrase für ein paar Minuten zwischenspeichern; gute Werte dafür
 sind alles zwischen einer und fünf Minuten.
 
-So, gehen wir zum nächsten Reiter "Senden":
+So, gehen wir zum nächsten Reiter `Senden`:
 
 ![OpenPGP-Einstellungen Senden](./img/tb_19.png)
 
@@ -396,18 +396,81 @@ Teil des SKS-Pools ist, ist `pgp.mit.eud`.
 So, nachdem wir nun durch die allgemeinen PGP-Einstellungen durch sind, kommen wir
 zum interessante Teil des Abends: Wir machen uns einen Schlüssel und benutzen ihn.
 
-## Schlüssel machen
+## Den Schlüssel erstellen
 
+Um einen Schlüssel zu machen müssen wir in die Schlüsselverwaltung gehen:
 
+![OpenPGP-Menu Schluesselverwaltung](./img/tb_23.png)
 
-![fig23](./img/tb_23.png)
-![fig24](./img/tb_24.png)
-![fig25](./img/tb_25.png)
-![fig26](./img/tb_26.png)
-![fig27](./img/tb_27.png)
-![fig28](./img/tb_28.png)
-![fig29](./img/tb_29.png)
-![fig30](./img/tb_30.png)
+Beim Klicken auf das rot eingerahmte Feld klickt, öffnet sich die Schlüsselverwaltung
+
+![Schluesselverwaltung](./img/tb_24.png)
+
+Als erstes sollten wir das Hákchen bei `Standardmäßig alle Schlüssel anzeigen`
+setzen, damit wir auch immer alle Schlüssel sehen, aber was uns am meisten interessiert
+ist das Erzeugen-Menu:
+
+![Erzeugen-Menu](./img/tb_25.png)
+
+Unter Benutzer-ID kann man wählen für welchen Alias man einen Schlüssel erzugen
+will. Da keine Passphrase zu setzen leichtsinnig ist, setzen wir eine Passphrase;
+am besten mit mehr mehr als acht Zeichen.
+
+Der erste Punkt der etwas genauer überdacht werden muss, ist die Gültigkeit des
+Schlüssels. Prinzipiell ist es sinnvoll seinen Schlüssel nach einer gewissen Zeit
+zu wechseln, aber eine endliche Laufzeit kann das Problem haben, dass man sie vergisst
+und dann nach ein paar Jahren ohne Schlüssel dasteht. Ein Schlüssel mit beliebiger
+Laufzeit verleitet aber auch dazu ihn beliebig lange zu nutzen. Das hier sit eine
+Frage die man für sich selbst klären muss.
+
+Der deutlich wichtigere Reiter in diesem Fenster ist aber `Erweitert`
+
+![Erzeugen=Menu Erweitert](./img/tb_26.png)
+
+In diesem Menü können die Schlüsselstärke (seine Länge) und der Schlüsselalgorithmus
+gewechselt werden.
+
+Bei den Algorithmen besteht die Wahl zwischen RSA, dem als schwieriges Problem
+Faktorierung zu Grunde liegt, und DSA & ElGamal, das auf dem schwierigen Problem
+des diskreten Logarithmus basiert. Ich empfehle RSA zu benutzen, da es ein sehr
+ausgereifter und sicherer Algorithmus, der von der Mehrheit benutzt wird.
+
+Die Schlüssellänge sollte man auf 4096 Bit stellen, da es heutzutage keine so
+schwache Hardware mehr gibt, dass sich kürzere Schlüssel lohnen. Die Standard-Schlüssellänge
+von 2048 Bit ist auch noch ok, 1024 bittige Schlüssel sollten aber als unsicher angesehen
+werden.
+
+Ein Klick auf auf `Schlüsselpaar erzeugen` tut genau das und nach einer Weile ist
+das Schlüsselpaar fertig und dieses Fenster grüßt uns:
+
+![Widerrufszertifikat erzeugen](./img/tb_27.png)
+
+Dieses Fenster befragt uns ob wir ein Widerrufszertifikat erzeugen wollen. Diese
+Zertifikate können dazu benutzt werden aller Welt zu sagen, das man den eigenen
+Schlüssel nicht mehr benutzen möchte (man hat einen neuen oder der alte wurde gestohlen).
+Dafür kann man das Zertifikat einfach auf einen Schlüsselserver hochladen auf den
+man vorher schon seinen öffentlichen Schlüssel hochgeladen hatte, dieser wird dann
+als widerrufen markiert.
+
+Man sollte also für den Fall der Fälle ein Widerrufszertifikat erzeugen und es
+an einem *sicheren Ort, offline* speichern, weil ansonsten jemand, der in Besitz
+des Zertifikates gerät, unseren Schlüssel widerrufen könnte.
+
+Wenn man auf `Zertifikat erzeugen` klickt, öffnet sich diese Fenster
+
+![Passphrasenabfrage](./img/tb_28.png)
+
+und fragt nach unserer Passphrase. Gewöhnt euch an dieses Fenster, ihr werdet es
+von nun an häufiger sehen. Nach Eingabe der Passphrase wird das Zertfikat erzeugt
+
+![Zertifikat wurde erzeugt](./img/tb_29.png)
+
+und wir sehen nun unseren Schlüssel in der Schlüsselverwaltung
+
+![Schluesselverwaltung mit unserem Schluessel](./img/tb_30.png)
+
+## Was man über den Schlüssel wissen und was man mit ihm tun kann
+
 ![fig31](./img/tb_31.png)
 ![fig32](./img/tb_32.png)
 ![fig33](./img/tb_33.png)
@@ -438,9 +501,7 @@ zum interessante Teil des Abends: Wir machen uns einen Schlüssel und benutzen i
 ![fig58](./img/tb_58.png)
 
 
-## Mails signieren
-
-## Mails verschlüsseln
+## Mails signieren und verschlüsseln
 
 # Vertrauen
 
