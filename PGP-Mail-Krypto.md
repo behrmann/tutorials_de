@@ -291,7 +291,7 @@ Thunderbird fertig.
 
 # Krypto!
 
-## GPG installieren
+## GPG installieren und Vorbereitungen
 
 Um jetzt zur Krypto zu kommen, müssen wir erstmal GPG installieren. Unter Windows
 läd man sich dafür [GPG4Win](http://www.gpg4win.org/) herunter und installiert es.
@@ -306,16 +306,100 @@ installieren es und starten anschließen Thunderbird neu.
 
 ![Enigmail Addon](./img/tb_14.png)
 
+Nach dem Neustart sollte dieses Fenster aufpoppen:
+
+![Assistent](./img/tb_16.png)
+
+Dieser kann eigentlich alle Einstellungen zu machen, die wir gleich machen wollen
+leider hatte er (zumindest in der Vergangenheit) ein paar Beschränkungen, z.B.
+in der Schlüssellänge, so dass wir lieber alles von Hand machen, was auch den
+Vorteil hat, dass wir die Einstellungen kennenlernen.
+
+Wenn ihr nun Alt drückt, dann seht ihr, dass ein neues Menu zu den bisherigen
+hinzugekommen ist:
+
+![Neues Menu](./img/tb_15.png)
+
+Über das OpenPGP-Menu oben findet ihr die OpenPGP-Einstellungen:
+
+![OpenPGP-Einstellungen](./img/tb_17.png)
+
+Die Einstellungen sind aber offensichtlich etwas leer, weswegen wir erstmal die
+restlichen Einstellungen anschalten (rot eingerahmt), dadurch kommen einige
+Reiter dazu:
+
+![Experten-OpenGPG-Einstellungen](./img/tb_18.png)
+
+Auf diesem Reiter ist die Zeit für die Speicherung der Passphrase am inetessantesten.
+Was ist die Passphrase eigentlich? Wenn wir nachher einen Schlüssel erstellen,
+dann werden wir ihn mit einer Passphrase sichern, damit unser Schlüssel auch nur
+von uns benutzt werden kann. Die Passphrase muss man dann für jedes Senden oder
+Entschlüsseln einer Mail neu eingeben, da das aber etwas unkomfortabel sein kann,
+kann man die Passphrase für ein paar Minuten zwischenspeichern; gute Werte dafür
+sind alles zwischen einer und fünf Minuten.
+
+So, gehen wir zum nächsten Reiter "Senden":
+
+![OpenPGP-Einstellungen Senden](./img/tb_19.png)
+
+Was wir hier sehen, sind die Standardeinstellungen, wichtig sind hier die beiden
+eingerahmten Einstellungen.
+
+Das rot eingerahmte bedeutet, dass immer wenn ihr eine verschlüsselte Mail
+verschickt, der Text nicht nur fúr den Empfängerschlüssel, sondern auch für euren
+eigenen verschlüsselt wird.
+
+Wie wir oben schon genauer beschrieben haben, kann ein Text, der mit einem
+öffentlichen Schlüssel verschlüsselt wurde, nur mit dem zugehörigen privaten
+Schlüssel wieder entschlüsselt werden kann. Folglich könntet ihr nach der
+Verschlüsselung ohne Nutzung dieser Option eure von euch selbst verschickten
+Mails nicht mehr lesen können.
+
+Die grüne Option dreht sich auch um Verschlüsselung. Wenn diese Option nicht gesetzt
+ist, dann könnte ihr verschlüsselte Mails nur an andere PGP-Nutzer schicken, deren
+Schlüsseln ihr vertraut, was bedeutet, dass ihr sie unterschrieben habt (mehr
+dauz spẗer). Durch das Setzen dieser Option könnt ihr jemanden eine verschlüsselte
+Mail schicken ohne vorher seinen Schlüssel zu signieren.
+
+Der nächste Reiter dreht sich um die Auswahl von Schlüsseln:
+
+![OpenPGP-Einstellungen Schluesselwahl](./img/tb_20.png)
+
+Die Voreinstellung ist die beste Wahl, dadurch wird immer automatisch der passende
+Schlüssel zu einer Mailadresse gewählt und alles lässt sich durch Empfängerregeln,
+zu denen wir später noch mehr sagen, noch genauer einstellen.
+
+Die erweiterten Einstellungen haben in der Standardeinstellung folgende Häkchen:
+
+![OpenPGP-Einstellungen Erweitert](./img/tb_21.png)
+
+Die meisten Einstellungen sind relativ selbsterklärend.
+Die ersten Option regelt das automatische signierte/verschlüsselte Antworten auf
+signierte/verschlüsselte Mails, und die zweite fügt in alle Mails einen zusätzlichen
+Header ein, der anzeigt, dass man Enigmail benutzt. Wenn man das möchte kann man
+das getrost abschalten.
+
+Zu guter letzt die Liste der Schlüssel-Server:
+
+![OpenPGP-Einstellungen Schluessel-Server](./img/tb_22.png)
+
+Wie findet man bei PGP eigentlich die Schlüssel anderer Leute, wenn man sie nicht
+von ihnen bekommen hat? Man sucht auf einem Schlüsselserver. Schlüsselserver sind
+soetwas wie ein Telefonbuch für PGP-Schlüssel. Wenn man nach einem Schlüssel sucht
+dann hat man in Zukunft die Auswahl zwischen allen Server in dieser Liste.
+
+Der wichtigste Server ist `pool.sks-keyservers.net`. Dieser ist kein einzelner
+Server, sondern ein Pool mehrer Server die alle Schlüssel zwischen sich austauschen,
+wodurch sie insgesamt am aktuellsten sind. Ein weiterer großer Server, der auch
+Teil des SKS-Pools ist, ist `pgp.mit.eud`.
+
+So, nachdem wir nun durch die allgemeinen PGP-Einstellungen durch sind, kommen wir
+zum interessante Teil des Abends: Wir machen uns einen Schlüssel und benutzen ihn.
+
 ## Schlüssel machen
 
-![fig15](./img/tb_15.png)
-![fig16](./img/tb_16.png)
-![fig17](./img/tb_17.png)
-![fig18](./img/tb_18.png)
-![fig19](./img/tb_19.png)
-![fig20](./img/tb_20.png)
-![fig21](./img/tb_21.png)
-![fig22](./img/tb_22.png)
+
+
 ![fig23](./img/tb_23.png)
 ![fig24](./img/tb_24.png)
 ![fig25](./img/tb_25.png)
