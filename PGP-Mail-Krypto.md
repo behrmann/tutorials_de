@@ -615,17 +615,21 @@ Woher kennt Adele unseren öffentlichen Schlüssel? Sie kennt ihn nicht, aus die
 Grund hängen wir ihn an:
 
 ![oeffentlichen Schluessel anhaengen](./img/tb_42.png)
-![fig43](./img/tb_43.png)
-![fig44](./img/tb_44.png)
-![fig60](./img/tb_60.png)
-![fig45](./img/tb_45.png)
-![fig46](./img/tb_46.png)
-![fig47](./img/tb_47.png)
-![fig55](./img/tb_55.png)
-![fig56](./img/tb_56.png)
-![fig57](./img/tb_57.png)
-![fig58](./img/tb_58.png)
 
+Danach klicken wir auf `Senden` woraufhin wir von diesem Fenster begrüßt werden,
+da Anhänge in PGP auf zwei verschiedene Arten behandelt werden können, dazu später
+mehr. Erstmal entscheiden wir uns für diese:
+
+![Frage nach Anhanghandling](./img/tb_43.png)
+
+Wie sieht unsere signierte Nachricht nun aus? Sie sieht so aus:
+
+![Unsere erste signierte Nachricht](./img/tb_60.png)
+
+
+Enigmail unterdrückt (fast) alle PGP-eigenen Nachrichten, so wie alle Mailclients
+und Webmailer schon fast allen Inhalt einer Mail unterdrücken. Schauen wir uns doch
+mal den Rohtext der Mail an:
 
 ```
 Message-ID: <537F8379.50609@bhaal.de>
@@ -754,6 +758,42 @@ UOkaRn9eRcNSvQmpNGQ1
 --NuT79Xx3vG1x8KSdDAqkK5OE0wwg4WvVO--
 ```
 
+Das wirkt jetzt länger als es sein müsste, aber gehen wir mal kurz durch den
+Inhalt der Mail. Alles bis "Hello Adele, [...]" ist der Mail-Header, der
+sowieso immer unterdrückt wird und aus dem nur einzelne Teile wir das `From`- und
+das `To`-Feld angezeigt werden. Im Header sehen wir auch die explizite Angabe,
+das die Anhänge mit PGP/Mime, was wir vorhin beim Absenden ausgewählt haben,
+zu behandeln sind.
+
+Darauf folgen die Angaben zu den Anhängen der Mail, derer sind es zwei, entgegen
+dem was Thunderbird im obigen Bild vorgibt. Der eine Anhang ist unser öffentlicher
+Schlüssel, den wir angehangen hatten, der andere ist unsere Signatur deren Block
+wir ganz am Ende der Mail sehen können.
+
+Dieses Konvolut wird von Thunderbird zusammen mit Enigmail wie oben gezeigt kurz
+aufbereitet. Da die Signatur mit dem Rest der Mail übereinstimmt zeigt Enigmail
+in der grünen Zeile an, das die Signatur in Ordnung ist. Diese Anzeige ist grün,
+weil wir dem Schlüssel, mit dem die Signatur erstellt wurde, vertrauen, er ist ja
+schließlich unser eigener. Wenn eine Signatur stimmt und wir dem Schlüssel nicht
+vertrauen, ist die Zeile blau. Wenn wir den öffentlichen Schlüssel zur Signatur
+nicht kennen, und sie deswegen nicht überprüfen können, dann ist die Zeile gelb
+und wir könnten den Schlüssel direkt über den `Details`-Button in der Zeile auf
+einem Keyserver suchen. Sollte eine Signatur nicht stimmen, dann ist die Zeile rot.
+
+Nach diesem kleinen Ausflug erreicht uns auch schon Adeles Antwort. Die Antwort ist
+verschlüsselt, wie wir hier sehen können, weswegen direkt nach unserer Passphrase
+gefragt wird.
+
+![Passphrasenabfrage zum Entschluesseln](./img/tb_44.png)
+
+Nach der Eingabe der Passphrase ist die Nachricht entschlüsselt. Leider signiert
+Adele ihre Mails nicht, weswegen die PGP-Statuszeile nur anzeigt, dass die Mail
+verschlüsselt wurde.
+
+![Adeles erste Antwort](./img/tb_45.png)
+
+Wie sieht diese Mail nun eigentlich aus?
+
 ```
 Return-Path: <adele-en@gnupp.de>
 X-Original-To: mustermann@bhaal.de
@@ -822,6 +862,105 @@ Adele is a service of G-N-U GmbH <http://www.g-n-u.de>.
 ----------------------------------------------------------------------
 ```
 
+Am Anfang ist wieder der Header, den Thunderbird normalerweise unterdrückt und
+darauf folgt die eigentlich Nachricht in ihrer verschlüsselten Form. Die Notiz
+am Ende ist übrigens dr Grund für die Warnung in der PGP-Statuszeile, dass nur
+Teile der Mail verschlüsselt sind.
+
+Probieren wir also noch eine verschlüsselte Nachricht zu verschicken:
+
+![Unsere erste verschlueselte Nachricht](./img/tb_46.png)
+
+Wie wir an der unteren, rechten Ecke sehen können, haben wir jetzt die sowohl
+das Signieren als auch das Verschlüsseln angeschaltet.
+
+Adele antwortet auch auf die zweite Mail mit einer verschlüsselten Mail, in der
+sie uns zeigt, dass sie unsere Mail entschlüsseln konnte, immerhin haben wir ihr
+ja vorher unseren öffentlichen Schlüssel geschickt.
+
+![Adele zweite Antwort](./img/tb_47.png)
+
+## Letzte Konfigurationen
+
+Nachdem wir sowohl das Signieren als auch das Verschlüsseln ausprobiert haben,
+wenden wir uns noch ein letztes Mal Optionen zu, die es zu konfigurieren gilt.
+Dafür kehren wir zurück zu den Konteneinstellungen in denen wir ganz am Anfang
+waren.
+
+In den Konteneinstellungen ist der Punkt `OpenPGP-Sicherheit` hinzugekommen:
+
+![Konteneinstellungen OpenPGP-Sicherheit](./img/tb_55.png)
+
+Hier kann man die standardmäßig zu verwendenden Schlüssel angeben, für den Fall,
+das man mehrere hat.
+
+Wichtiger sind jedoch die grün eingerahmten Optionen. Da kann man Regeln ob per
+default Mails signiert und verschlüsselt werden sollen und ob standardmäßig PGP/MIME
+verwendet werden soll.
+
+Das obige Bild zeigt meinen Vorschlag, wie man es einstellen sollte. Es empfiehlt
+sich alle eigenen Mails zu signieren einfach um im Zweifel plausibel sagen zu können
+*"Die Mail ist nicht signiert, die ist nicht von mir."*
+
+Oftmals höre ich *"Ich will gar nicht, dass man mir alle meine Mails zuordnen kann."*
+Selbst ohne Signatur gibt es genug Metadaten um eine Indizienlage zu schaffen, das
+man die Mail geschrieben hat, aber das eigentliche Problem ist in dem Fall, das
+man entweder Informationen mit jemanden geteilt hat, dem man nicht vertraut, oder
+nicht will, das jemand anderes die Mail liest. DAs Problem wird aber durch
+Verschlüsselung gelöst.
+
+Das Häkchen bei `Nachrichten standardmäßig verschlüsseln` zu setzen ist zwar
+prinzipiell richtig, führt aber zu dem Problem, das bei jedem Senden von Nachrichten
+ein Fenster aufpoppt in dem Man einen Schlüssel wählen soll, wenn Thunderbird nicht
+entscheiden kann, für welchen Schlüssel es verschlüsseln soll. Das ist natürlich
+lästig, wenn der Empfänger keinen Schlüssel hat.
+
+Die schwierigste Frage ist, ob man das Häkchen bei `PGP/MIME standardmäßig verwenden`
+setzen sollte. PGP/MIME ist eine Einstellung dazu, wie PGP Anhänge behandeln soll.
+Was ist die Alternative zu PGP/MIME? Das ältere Inline-PGP.
+
+Bei Inline-PGP werden alle Anhänge zusammen mit der Nachricht in einen langen Code-Block
+gepackt und dann verschlüsselt und signiert. Bei PGP/MIME enthält die Mail eine
+baumartige Datenstruktur bei der die eigentliche Nachricht und jeder Anhang
+einzeln verschlüsselt und signiert wird.
+
+PGP/MIME ist die technisch klar bessere Lösung, aber genau wie bei VHS und Betamax,
+ist das leider nicht immer die Lösung des Problems. Leider gibt es immernoch ein
+paar ranzige Email-Clients, die bei PGP/MIME-kodierten Mails einfach nichts anzeigen.
+Zu diesen ranzigen Mailclients gehören neben Outlook leider auch alle Mailclients
+unter Android, allen voran K9Mail, bei dem zu diesem Problem seit jahren ein offener
+Bugreport existiert.
+
+Wie umgeht man dieses Problem nun? Man sollte PGP/MIME standardmäßig einstellen
+und es gezielt für Nutzer ranziger Mailclients abstellen. Wie macht man das? Das
+Stichwort dafür sind Empfängerregeln.
+
+Zu den Einstellungen kommt man über den Eintrag `Empfängerreln...` der im OpenPGP-Menu
+von Thunderbird (im Hauptfenster durch das Drücken von Alt erreichbar) direkt
+über der Schlüsselverwaltung ist. Das Fenster ist am Anfang natürlich leer
+
+![Empfaengerregeln leer](./img/tb_56.png)
+
+Durch den Klick auf `Hinzufügen` kommt man in das Fenster zum festlegen der
+Empfängerregeln.
+
+![Empfaengerregel schreiben](./img/tb_57.png)
+
+Im obersten Feld kann man durch Leerzeichen getrennt eine Liste von Emailadressen
+angeben für die die Regel gelten soll. Der Punkt `Verwende folgen OpenPGP-Schlüssel:`
+unter Aktion ist nur relevant, wenn die Mail an die oben angegebene Empfängerliste
+verschlüsselt werden soll, dafür kann man damit den Schlüssel wählen. Darunter kann
+man einzeln Signieren, Verschlüsseln und das Verwenden von PGP/MIME umschalten.
+
+Nach dem Bestätigen taucht die neue Empfängerregel in der Liste auf:
+
+![Empfaengerregel gesetzt](./img/tb_58.png)
+
+Die Empfängerregel, die wir als Beispiel gesetzt haben, ist für die Mailingliste
+der Fachschaftsinitiative der FU Berlin. In dieser Regel haben wir PGP/MIME explizit
+abgeschaltet, da man gerade bei Mailinglisten immer auf den kleinsten gemeinsamen
+Nenner achten sollte und deswegen davon ausgehen muss, dass irgendjemand einen
+ranzigen Mailclient hat.
 
 # Vertrauen
 
