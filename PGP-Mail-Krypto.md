@@ -964,6 +964,17 @@ ranzigen Mailclient hat.
 
 # Vertrauen
 
+Wenn ich eine signierte Mail bekomme und ich dadurch weis, dass die Mail nicht
+entlang des Weges manipuliert wurde, woher weis ich, dass der Schlüssel mit dem
+sie signiert wurde auch tatsächlich meinem Gegenüber gehört?
+
+Wenn mir jemand eine verschlüssete Mail schreiben möchte, woher weis mein Gegenüber
+das mein öffentlicher Schlüssel, den er sich von einem Keyserver geholt hat, auch
+tatsächlich mir gehört?
+
+Wir können es (erstmal) nicht wissen. Um dieses Problem zu lösen, gibt es das
+Konzept des Web of Trust.
+
 ## Web of Trust
 
 ## Keysigning
