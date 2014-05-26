@@ -148,6 +148,48 @@ Insgesamt wiegen die Vorteile die Nachteile aber mehr als auf.
 
 ## Ein paar Worte dazu wie Krypto funktioniert
 
+Wie funktioniert den Kryptographie nun eigentlich?
+
+Prinzipiell gibt es zwei verschiedene Arten der Kryptographie: symmetrische und
+asymmetrische.
+
+Diese symmetrische ist die, die man oftmals schon aus der Schule kennt, mit einem
+Schlüssel(word) wird ein Klartext verschlüsselt und daraus entsteht der Geheimtext.
+Wenn man den Geheimtext und den Schlüssel hat, dann kann man daraus wieder den Klartext
+gewinnen. Einer der derzeit sichersten symmetrischen Kryptographiealgorithmen ist
+*AES*.
+
+Asymmetrische Krypographie, auch Public-Key-Kryptographie genannt, funktioniert
+grundlegend anders. Jeder Teilnehmer hat zwei Schlüssel. Davon wird einer zum
+öffentlichen und einer zum geheimen Schlüssel erklärt. Welcher der geheime, auch privat
+genannte, Schlüssel ist und welcher der öffentliche ist, ist eigentlich egal, so
+lange sie ihre Rollen nicht mehr wechseln.
+
+Bei asymmetrischer Verschlüsselung kann ein Verschlüsseln das mit dem einen
+Schlüssel gemacht wurde nur mit dem jeweils anderen rückgängig gemacht werden.
+Dies ermöglicht eine einfache Art sicher mit anderen Parteien zu kommunizieren
+und auch seine eigene Identität nachzuweisen.
+
+Dafür wird der öffentliche Schlüssel, nun ja, öffentlich gemacht, so dass jeder
+auf ihn zugreifen kann. Damit jemand dann mit mir verschlüsselt kommunizieren kann
+verschlüsselt er seinen Klartext mit meinem öffentlichen Schlüssel, so dass nur
+noch ich ihn mit meinem geheiem Schlüssel entschlüsseln kann.
+
+Meine Identität (und das meine Nachricht nicht verändert wurde) kann ich nachweisen
+indem ich meine Nachrichten signiere. Dafür hänge ich an meine Nachrichten einen
+kleinen verschlüsselten Block mit einem Exzerpt (einem sogenannten Hash) meiner
+Nachricht an. Jeder der in Besitz meines öffentlichen Schlüssels ist, kann
+diesen Block entschlüsseln und selbst die Nachricht hashen und gegen den von
+mir mitgesandten Hash vergleichen.
+
+Ein Beispiel für Public-Key-Kryptographie ist *RSA*.
+
+PGP, um das es hier geht, verwendet beide Arten der Verschlüsselung, da symmetrische
+Kryptographiealgorithmen deutlich einfacher sind als asymmetrische. Mit PGP
+stehen alle Funktionen asymmetrischer Kryptographie vollständig zur Verfügung, aber
+es werden damit nur temporäre Schlüssel für symmetrische Algorithmen verschlüsselt,
+mit denen dann die Nachrichten dann eigentlich verschlüsselt wird.
+
 # Mein erster Tag mit GPG
 
 Im Folgenden gehen wir gemeinsam reich bebildert durch die Instllation und
