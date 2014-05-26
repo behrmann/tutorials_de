@@ -320,12 +320,12 @@ Leider hatte er (zumindest in der Vergangenheit) ein paar Beschränkungen, z.B.
 in der Schlüssellänge, so dass wir lieber alles von Hand machen, was auch den
 Vorteil hat, dass wir die Einstellungen kennenlernen.
 
-Wenn ihr nun Alt drückt, dann seht ihr, dass ein neues Menu zu den bisherigen
+Wenn ihr nun Alt drückt, dann seht ihr, dass ein neues Menü zu den bisherigen
 hinzugekommen ist:
 
 ![Neues Menu](./img/tb_15.png)
 
-Über das OpenPGP-Menu oben findet ihr die Einstellungen:
+Über das OpenPGP-Menü oben findet ihr die Einstellungen:
 
 ![OpenPGP-Einstellungen](./img/tb_17.png)
 
@@ -413,7 +413,7 @@ Beim Klicken auf das rot eingerahmte Feld klickt, öffnet sich die Schlüsselver
 
 Als erstes sollten wir das Häkchen bei `Standardmäßig alle Schlüssel anzeigen`
 setzen, damit wir auch immer alle Schlüssel sehen, aber was uns am meisten interessiert
-ist das Erzeugen-Menu:
+ist das Erzeugen-Menü:
 
 ![Erzeugen-Menu](./img/tb_25.png)
 
@@ -935,7 +935,7 @@ Wie umgeht man dieses Problem nun? Man sollte PGP/MIME standardmäßig einstelle
 und es gezielt für Nutzer ranziger Mailclients abstellen. Wie macht man das? Das
 Stichwort dafür sind Empfängerregeln.
 
-Zu den Einstellungen kommt man über den Eintrag `Empfängerreln...` der im OpenPGP-Menu
+Zu den Einstellungen kommt man über den Eintrag `Empfängerreln...` der im OpenPGP-Menü
 von Thunderbird (im Hauptfenster durch das Drücken von Alt erreichbar) direkt
 über der Schlüsselverwaltung ist. Das Fenster ist am Anfang natürlich leer
 
@@ -1040,6 +1040,9 @@ Es gibt verschiedene Stufen des Besitzervertrauens:
   blindlings alle Schlüssel unterschreibt, die ihm unterkommen, ohne irgendwelche
   Überprüfungen zu machen.
 
+Absolutes Vertrauen ist ein Joker, der sich wie volles Vertrauen verhält, aber
+alle anderen Vertrauensstufen schlägt, also auch Nichtvertrauen.
+
 Fassen wir nochmal zusammen:
 
 - Die Schlüsselgültigkeit ist ob man einem konkreten Schlüssel vertraut, entweder weil
@@ -1055,14 +1058,77 @@ oder nicht? Das bespricht der nächste Abschnitt.
 
 ## Keysigning
 
+Wie schon gesagt, sind die wichtigen Informationen der Fingerabdruck, das Besitzervertrauen
+und die Schlüsselgültigkeit, die wir vergessen haben haben rot zu umranden.
+
 ![fig48](./img/tb_48.png)
+
+Schauen wir doch mal unsere eigenen Unterschriften an über `Aktion wählen -> Unterschriften anzeigen...`:
+
 ![fig49](./img/tb_49.png)
+
+Bis jetzt ist unserer Schlüssel nur mit sich selbst signiert, das ist immer der
+Ausgangszustand eines Schlüssels.
+
 ![fig50](./img/tb_50.png)
-![fig51](./img/tb_51.png)
-![fig52](./img/tb_52.png)
-![fig53](./img/tb_53.png)
-![fig54](./img/tb_54.png)
-![fig58](./img/tb_59.png)
+
+Mehr Unterschriften bekommt man üblicherweise indem man Leute findet, die einem
+im Gegenzug den Schlüssel signieren, dass man ihren Schlüssel signiert.
+
+Dafür trifft man sich in der *Realität* und vergleicht die Fingerprints der Keys,
+die man vom jeweils anderen hat und danach geht man durch das folgende Prozedere,
+das wir jetzt an Hand von Adeles Schlüssel vormachen.
+
+Nehmen wir mal an, das wir Adele in natura getroffen haben und nachdem wir unsere
+Fingerprints verglichen und unsere Ausweise gezeigt haben um unseren Identitäten
+zu prüfen, ist sie gerade dabei unseren Schlüssel zu signieren.
+Wenn wir uns ihre Unterschriftenliste anschauen, sehen wir, dass sie schon sehr
+lang ist. Wir kennen aber keinen der Schlüssel und haben keinen von ihnen
+heruntergeladen.
+
+![Adeles Unterschriftenliste](./img/tb_51.png)
+
+Um Adeles Schlüssel unseren Signatur hinzufügen klicken wir auf
+`Aktion wählen -> Unterschreibe...`. Dies führt uns in dieses Fenster
+
+![Signaturfenster](./img/tb_52.png)
+
+Der rote Kasten zeigt den Schlüssel an mit dem wir den anderen Schlüssel signieren
+wollen. Der obere grüne Block zeigt uns das wir Adeles Schlüssel signieren wollen
+und nochmal den dazugehörigen Fingerprint und die Benutzer-ID (Name und Emailadresse).
+
+Im zweiten grünen Block kann man auswählen wie gründlich wir den Schlüssel und
+Adeles Identität überprüft haben. Zu einer gründlichen Identitätsprüfung gehört,
+dass man sich (mindestens) einen Ausweise zeigen lässt, aber die Maßgaben dafür
+muss man für sich selbst bestimmen.
+Da Adele nicht real ist, haben wir erstmal `Ich habe es nicht überprüft` angebe.
+
+Da wir eine exportierbare Unterschrift haben wollen, setzen wir das Häkchen im
+blauen Rahmen nicht. Leider hat Enigmail leider auch einen Bug im Handling
+von lokalen Unterschriften, weswegen man einen einmal lokal unterschriebenen
+Schlüssel nicht mehr exportierbar unterschreiben kann, sondern ihn davor löschen
+und neu laden muss.
+
+Einen Klick und eine Passphraseneingabe später können wir unsere Signatur in
+Adeles Unterschriftenliste finden:
+
+![Adeles Unterschriftenliste mit unserer Unterschrift](./img/tb_53.png)
+
+Natürlich hat Adele von unserer Signatur auf ihrem Schlüssel nichts, wenn wir
+ihr ihren von uns unterschriebenen Schlüssel nicht zukommen lassen. Dafür hat das
+Kontextmenü in der Schlüsselverwaltung den Eintrag `Öffentliche Schlüssel per E-Mail senden`.
+
+Wäre Adele eine reale Person würden wir ihr ihren Schlüssel in einer signierten
+und verschlüsselten Mail schicken. Im roten Kasten sehen wir den Anhang mit ihrem
+öffentlichen Schlüssel:
+
+![Adele ihren von uns signierten Schlüssel schicken](./img/tb_54.png)
+
+In der Realität legt man an dieser Stelle, abhängig von Verhalten des Gegenübers,
+wie grúndlich er uns überprüft hat, noch das Benutzervertrauen über
+`Aktion wählen -> Benutzervertrauen festlegen...` fest.
+
+![Adeles Besitzervertrauen festlegen](./img/tb_59.png)
 
 # Fortgeschrittenes
 
