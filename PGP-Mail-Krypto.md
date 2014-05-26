@@ -84,6 +84,18 @@ Zwar wurde Seitens der US-Amerikanischen Regierung versichert, diese Untersuchun
 Zukunft auf eine Tiefe von 2 zu beschränken, in wieweit diese Aussage aber vertrauenswürdig
 ist, sei an dieser Stelle als Hausaufgabe gelassen.
 
+Schlussendlich kommt noch der Schutz anderer Leute hinzu. Verschlüsselte Kommunikation
+ist zwar sicher, aber sie fällt auf. Zwar kann der Inhalt nicht herausgefunden
+werden, aber die Metadaten, also wer mit wem kommuniziert, können (zumindest mit PGP)
+leider nicht gesichert werden. Es gibt auf jeden Fall Leute mit legitimen
+Sicherheitsbedenken, z.B. Dissidenten in repressiven Regimen.
+
+Diese können zwar verschlüsselt kommunizieren, dann fallen sie auf aber auf, und
+obwohl dies signifikant besser ist als offen zu kommunizeren, ist es problematisch.
+Dies ist ein weiterer Grund warum eine weitere Förderung von Kryptographiewichtig ist,
+so dass sie ein signifikanter Anteil des weltweiten Datentransfers wird und die
+Nutzung von Kryptographie kein besonderes Merkmal mehr ist.
+
 ## Sonst noch was?
 
 Außer zur Verschlüsselung, erfüllt PGP noch einen anderen Hauptnutzen: Authentifizierung.
@@ -108,6 +120,31 @@ nicht manipuliert wurde und von demjenigen geschickt worden sein muss, der den
 Schlüssel besitzt mit dessen Hilfe der Digest erstellt wurde.
 
 ## Und wo ist der Haken?
+
+Natürlich kommt die Verwendung von Kryptographie mit ein paar Nachteilen.
+
+Am wichtigsten ist wohl, dass man verschlüsselte (nicht aber signierte) Nachrichten
+nur dort lesen kann, wo man auch seinen privaten Schlüssel hat. Damit fallen
+Webmailer und mobile Clients (Smartphones und Tablets) oftmals aus. Kein Browser
+ist so sicher, dass man irgendwelchen Javascript-PGP-Implementation trauen sollte
+und man sowieso sollte man seinen privaten Schlüssel nur auf Geräten haben, die
+einem selber gehören und denen man traut. Gerade das Vertrauen in das Gerät
+macht mobile Clients schwierig.
+
+Nichts desto trotz gibt es für Webmailer unbedenkliche Lösungen um Signaturen zu
+prüfen und verschlüsselte Mails zu schreiben. Nur das Lesen von verschlüsselten Mails
+sollte man, wie schon erwähnt, nur auf vertrauenswürdigen Geräten machen.
+
+Ein weiterer Nachteil ist, dass Mails mit Signaturen ein klein wenig größer sind,
+weil am Ende der Mail ein Signaturblock hängt. Diese Signaturblock ist manchmal auch
+der Grund für Fragen wie "Warum hängt eigentlich irgendwelcher Datenmüll am Ende
+jeder Mail von dir?"
+
+Diese Fragen sind natürlich eine Chance mehr Leute in den Kreis der Nutzer von PGP
+zu holen, denn Enigmail für Thunderbird unterdrückt all diese lästigen Anhängsel
+und bereitet sie ansehnlich auf.
+
+Insgesamt wiegen die Vorteile die Nachteile aber mehr als auf.
 
 ## Ein paar Worte dazu wie Krypto funktioniert
 
