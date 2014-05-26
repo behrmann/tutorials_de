@@ -148,7 +148,7 @@ Insgesamt wiegen die Vorteile die Nachteile aber mehr als auf.
 
 ## Ein paar Worte dazu wie Krypto funktioniert
 
-Wie funktioniert den Kryptographie nun eigentlich?
+Wie funktioniert denn Kryptographie nun eigentlich?
 
 Prinzipiell gibt es zwei verschiedene Arten der Kryptographie: symmetrische und
 asymmetrische.
@@ -1203,6 +1203,12 @@ und verschlüsselten Mail schicken. Im roten Kasten sehen wir den Anhang mit ihr
 
 ![Adele ihren von uns signierten Schlüssel schicken](./img/tb_54.png)
 
+Sie könnte dann ihren angehangen Schlüssel speichern und in der
+Schlüsselverwaltung unter `Datei -> Schlüssel aus Datei importieren` neu importieren.
+Danach müsste sie ihren Schlüssel erneut auf den Keyserver hochladen. Zwar könnten
+wir ihren öffentliche Schlüssel auch auf einen Keyserver hochladen, ohne ihre
+Zustimmung gilt dies jedoch als extrem unhöflich.
+
 In der Realität legt man an dieser Stelle, abhängig von Verhalten des Gegenübers,
 wie grúndlich er uns überprüft hat, noch das Benutzervertrauen über
 `Aktion wählen -> Benutzervertrauen festlegen...` fest.
@@ -1211,12 +1217,62 @@ wie grúndlich er uns überprüft hat, noch das Benutzervertrauen über
 
 # Fortgeschrittenes
 
+In diesem Abschnitt wollen wir ein paar weitergehende Themen diskutieren.
+
 ## Keysigningparties
 
-https://wiki.debian.org/caff
+Keysigningparties sind eine hervorragende Möglichkeit um mit vielen Leuten
+gleichzeitig Signaturen auszutauschen.
+
+Keysigninparties funktionieren aus einem Grund: Es ist vollkommen egal in welcher
+Reihenfolge verschiedene Leute einen Schlüssel signieren, wenn man den selben
+Schlüssel mit verschiedenen Signaturlisten importiert, dann werden die
+Signaturlisten vereinigt.
+
+Ein gutes Vorgehen ist von einem Veranstalter alle Fingerprints potentieller
+Teilnehmer sammeln zu lassen, z.B. indem sie ihre Fingerprints in einer
+signierten und verschlüsselten Mail schicken um zu zeigen, das sie wissen wie
+es geht.
+
+Vor Ort verliest man dann alle Fingerprints von einer Liste die alle Teilnehmer
+bekommen und die Anwesenden sagen ob ihr Fingerprint stimmt.
+Danach überprüft man die Ausweisedokumente, die alle mitgebracht haben.
+
+Nachdem damit die Überprüfung der Schlüssel und der Identitäten vollbracht ist,
+können alle Teilnehmer die Schlüssel der anderen signieren und die signierten
+Schlüssel, wie oben beschrieben, an ihre Besitzer schicken.
+
+Ein nützliches Tool um das Signieren und Verschicken der signierten Schlüssel
+zu vereinfachen ist [caff](https://wiki.debian.org/caff).
+
+## Subkeys und Smartcards
+
+Dazu kommt hier zu einem späteren Zeitpunkt etwas.
 
 # Übrige Fragen
 
 **Schlüssellängen:** Ist *RSA1024* jetzt sicherer als *AES256*?
 
-Das ist ein Vergleich von Äpfeln mit Birnen.
+Das ist ein Vergleich von Äpfeln mit Birnen. Die Algorithmen sind grundverschieden;
+der eine ist asymmetrisch und der andere symmetrisch. Dadurch kann man nicht
+einfach nur die Schlüssellängen vergleichen. 1024bittiges RSA ist jedoch heute
+knackbar, während 256bittiges AES als sicher gilt.
+Bei RSA sollte man mindestens 2048 Bit, besser noch 4096 Bit, lange Schlüssel
+verwenden.
+
+**Android:** Was muss ich eigentlich unter Android tun um Krypto zu benutzen?
+
+Für E-Mail-Krypt kann man auch unter Android PGP benutzen. Dafür ist K9Mail
+der Client der Wahl. Dieser unterstützt die PGP-Implementation APG.
+Leider unterstützt K9Mail PGP/MIME nicht, zeigt aber wenigstens noch die
+Nachrichten an.
+
+Wer noch seine SMSen und Instant Messages absichern will, sollte zu TextSecure
+greifen.
+
+**Outlook:** Kann ich PGP auch mit Outlook verwenden?
+
+Outlook ist für PGP immer schwierig und bei neuen Outlook-Versionen lassen
+PGP-Plugins oftmals lange auf sich warten. Eine noch nicht ganz vollständige
+Implementation sollte in den Versionen 2.2 und später von GPG4Win
+auch fúr Outlook 2010 und 2013 vorhanden sein.
