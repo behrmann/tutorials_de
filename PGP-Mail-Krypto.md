@@ -977,6 +977,82 @@ Konzept des Web of Trust.
 
 ## Web of Trust
 
+Prinzipiell scheint es erstmal schwierig zu Wissen ob ein Schlüssel, den wir von
+jemanden haben auch der Schlüssel ist, der wirklich seiner ist. An dieser Stelle
+kommt der Fingerabdruck (Fingerprint) eines Schlüssels ins Spiel. Den finden wir,
+wie schon einmal erwähnt, in der Schlüsselverwaltung.
+
+![Schluesseleigenschaften 2](./img/tb_37.png)
+
+Falls uns also jemand fragt ob Schlüssel XY uns gehört, dann muss er nur den
+Fingerabdruck mit der Version, die ihm vorliegt, vergleichen und weis dann, dass
+der Schlüssel uns gehört.
+
+Vorsicht, während der Fingerabdruck ist für jeden Schlüssel einzigartig ist, gilt
+das für die Schlüssel-ID nicht notwendigerweise und es ist schon vorgekommen, dass
+zwei verschiedene Schlüssel die selbe ID hatten.
+
+Wenn wir also den Fingerprint unserer Gegenüber überprüft haben, dann können wir
+festlegen, dass wir diesem Schlüssel vertrauen. Das macht man, indem man den
+anderen Schlüssel mit dem eigenen Schlüssel signiert. Wie das geht erklären wir
+im nächsten Abschnitt.
+
+Diese Signaturen können entweder lokal sein, was bedeutet, dass man diese Vertrauensaussage
+erstmal nur für sich macht, oder exportierbar. Exportierbare Signaturen sind
+ein Vertrauensausspruch, indem man bekundet, dass man selbst die Echtheit dieses
+Schlüssels und der dazugehörigen Identitäten festgestellt hat.
+
+Dies führt uns zum eigentlichen Web of Trust, das die Antwort auf die Frage ist
+"Wenn ich einen beliebigen Schlüssel habe, von jemanden, den ich nicht kenne,
+woher weis ich, dass er echt ist?"
+
+Dieses Problem scheint erstmal schwierig zu lösen und ist es auch, Vertrauensaussprüche
+sind eines der großen Probleme im Dunstkreis der Kryptographie, aber das Web of Trust
+ist einer der sinnvolleren Ansätze das Problem zu lösen.
+
+Was ist also das Web of Trust? Es ist ein Netzwerk aus (gegenseitigen) Vertrauensbekundungen,
+das Schlüssel und Identitäten zueinander gehören. Je nachdem wie viele Unterschriften
+(Signaturen) ein anderer Schlüssel von Leuten hat denen wir vorher ein Besitzervertrauen
+zugeordnet haben (der Eintrag über dem Fingerabdruck im obigen Bild) vertrauen
+wir diesem Schlüssel oder nicht.
+
+Es gibt verschiedene Stufen des Besitzervertrauens:
+- absolutes Vertrauen: Das ist die Stufe, die man immer nur sich selbst geben sollte,
+  da Leute mit absoluten Vertrauen für einen Vertrauensentscheidungen treffen
+  können. Eine kurze Nebenbemerkung: Es ist ein manchmal vorkommendes Problem, wenn
+  man seine Schlüssel auf einen neuen Rechner umzieht, dass man für den eigenen
+  Schlüssel beim Import nicht automatisch absolutes Vertrauen gesetzt wird,
+  es lohnt sich bei Problemen das also zu überprüfen.
+
+- volles Vertrauen: ein Schlüssel der von einem anderen Schlüssel mit absoluten
+  Vertrauen signiert wurde, wird automatisch als vertrauenswürdig eingeschätzt,
+  da man der Ansicht ist, das die Überprüfung von Identität und Schlüssel genauso
+  gut von statten gegangen ist, als würde man es selbst tun.
+
+- geringes (marginales) Vertrauen: Das ist die Vertrauensstufe, die man anderen
+  Leuten, die man nicht besonders gut kennt, normalerweise geben sollte. Einem
+  anderen Schlüssel wird vertraut, wenn er drei Unterschriften mit geringem
+  Besitzervertrauen hat.
+
+- Nichtvertrauen: Mit dieser Stufe kann man anderen Nutzer im Web of Trust
+  explizit blacklisten und ihren Signaturen auf einem anderne Schlüssel nicht
+  vertrauen. Dies ist sinnvoll, wenn man weis, dass dieser Nutzer z.B.
+  blindlings alle Schlüssel unterschreibt, die ihm unterkommen, ohne irgendwelche
+  Überprüfungen zu machen.
+
+Fassen wir nochmal zusammen:
+
+- Die Schlüsselgültigkeit ist ob man einem konkreten Schlüssel vertraut, entweder weil
+  man ihn selbst unterschrieben hat oder seine Echtheit sich aus Signaturen von
+  Leuten ergibt, denen man ein Besitzervertrauen zugeordnet hat.
+
+- Das Besitzervertrauen ist wie sehr man den Menschen hinter dem Schlüssel
+  vertraut die Identitäteten anderer PGP-Nutzer zu überprüfen bevor er ihre
+  Schlüssel signiert.
+
+Wie signiert man Schlüssel denn nun und ordnet Leuten zu ob man ihnen vertraut
+oder nicht? Das bespricht der nächste Abschnitt.
+
 ## Keysigning
 
 ![fig48](./img/tb_48.png)
@@ -991,6 +1067,8 @@ Konzept des Web of Trust.
 # Fortgeschrittenes
 
 ## Keysigningparties
+
+https://wiki.debian.org/caff
 
 # Übrige Fragen
 
