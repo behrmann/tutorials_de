@@ -253,6 +253,7 @@ KIT       | https://www.scc.kit.edu/dienste/7395.php
 LMU München | http://www.en.it.physik.uni-muenchen.de/dienste/kommunikation/e-mail/einrichtung_clients/index.html
 TU München  | https://portal.mytum.de/faq/it-dienste/email2/imap
 Universität Potsdam | http://www.zeik.uni-potsdam.de/internet/mail.html
+Universität Regensburg | http://www.uni-regensburg.de/rechenzentrum/support/e-mail/thunderbird/index.html
 
 Ein Kommentar zu den Einstellungen: IMAP ist auf jeden Fall vor POP3 zu bevorzugen.
 Bei IMAP liegen eure Mails dauerhaft auf dem Mailserver, mit POP3 werden sie vom,
