@@ -40,6 +40,9 @@ verschlüsselt ist, über die Kommunikation zwischen den Mailserver verschiedene
 Anbieter sagt das leider erstmal nichts aus. Diese war bis vor kurzem meist
 unverschlüsselt und das hebelt die Verschlüsselung insgesamt aus, da diese immer
 nur so stark ist, wie ihr schwächstes Glied.
+Auch gibt es schwarze Schafe in der Branche, die bewusst die Datenströme
+zwischen den Server manipulieren um SSL-Verschlüsselung
+[gezielt zu unterbinden](http://it.slashdot.org/story/14/11/11/2349244/isps-removing-their-customers-email-encryption).
 
 Auch schützt einen SSL/TLS nicht vor Fehlern in dessen Implementierung, wie
 jüngst Heartbleed zeigte, oder seinem Design, z.B. kann prinzipiell jede CA
@@ -51,9 +54,11 @@ Stellen die Herausgabe der Schlüssel verlangen können.
 Zwar gibt es Lösungsansätze für all diese Probleme: Perfect Forward Secrecy
 ermöglicht, dass erbeutete SSL-Schlüssel nicht dazu genutzt werden können
 zurückliegenden Datenverkehr zu entschlüsseln, DANE löst das Problem, das einem
-falsche Schlüssel untergeschoben werden. Allerdings werden diese Lösungen noch
-nicht überall unterstützt, DANE z.B. erst von einem *einzigen* Mailprovider
-überhaupt (Posteo).
+falsche Schlüssel untergeschoben werden und eine vernünftige Konfiguration des
+Mailservers sollte unverschlüsselte Server-zu-Server-Verbindungen unterlassen.
+Allerdings werden diese Lösungen noch nicht überall unterstützt, DANE z.B. erst
+von einem *einzigen* (deutschen) Mailprovider überhaupt (Posteo), und man ist
+immer darauf angewiesen seinem Anbieter voll zu vertrauen.
 
 Selbst wenn man selbst oder der eigene Mailanbieter das Minenfeld SSL sicher
 durchschifft hat, bleibt das Problem, dass SSL die Daten nur im Transit schützt,
