@@ -430,44 +430,49 @@ Entschlüsseln einer Mail neu eingeben, da das aber etwas unkomfortabel sein kan
 kann man die Passphrase für ein paar Minuten zwischenspeichern; gute Werte dafür
 sind alles zwischen einer und fünf Minuten.
 
+(Die nächsten drei Bilder sind leider auf englisch und sehen etwas anders aus,
+da ich leider zur Aktualisierung dieses Tutorials keinen Windowsrechner
+zur Hand hatte.)
+
 So, gehen wir zum nächsten Reiter `Senden`:
 
 ![OpenPGP-Einstellungen Senden](./img/tb_19.png)
 
-Was wir hier sehen, sind die Standardeinstellungen, wichtig sind hier die beiden
-eingerahmten Einstellungen.
+Die Einstellungen in diesem Reiter legen die Standardeinstellungen zum Signieren
+und Verschlüsseln fest. Wir werden die manuellen Einstellungen verwenden.
 
-Das rot eingerahmte bedeutet, dass immer wenn ihr eine verschlüsselte Mail
-verschickt, der Text nicht nur fúr den Empfängerschlüssel, sondern auch für euren
-eigenen verschlüsselt wird.
+Die Einstellungen, so wie sie auf dem Bild zu sehen sind, legen fest, dass wir
+auf signierte Mails immer selbst mit signierten Mails antworten wollen und auf
+verschlüsselte Mails verschlüsselt antworten.
 
-Wie wir oben schon genauer beschrieben haben, kann ein Text, der mit einem
-öffentlichen Schlüssel verschlüsselt wurde, nur mit dem zugehörigen privaten
-Schlüssel wieder entschlüsselt werden. Folglich könntet ihr nach der
-Verschlüsselung ohne Nutzung dieser Option eure von euch selbst verschickten
-Mails nicht mehr lesen.
+Außerdem wollen wir immer verschlüsselte Mails schreiben, falls uns eine
+Schlüssel bekannt ist, auch wenn wir dem Schlüssel nicht explizit vertrauen.
+Wenn ihr die Option `Only keys I explicitly trust` gesetzt habt, dann könnte ihr
+verschlüsselte Mails nur an andere PGP-Nutzer schicken, deren Schlüsseln ihr
+vertraut, was bedeutet, dass ihr sie unterschrieben habt (mehr dazu
+später). Durch das Setzen der Option `All valid keys I have` könnt ihr jemanden
+eine verschlüsselte Mail schicken ohne vorher seinen Schlüssel zu signieren.
 
-Die grüne Option dreht sich auch um Verschlüsselung. Wenn diese Option nicht gesetzt
-ist, dann könnte ihr verschlüsselte Mails nur an andere PGP-Nutzer schicken, deren
-Schlüsseln ihr vertraut, was bedeutet, dass ihr sie unterschrieben habt (mehr
-dauz spẗer). Durch das Setzen dieser Option könnt ihr jemanden eine verschlüsselte
-Mail schicken ohne vorher seinen Schlüssel zu signieren.
+Außerdem wollen wir immer um Bestätigung gebeten werden, falls wir von diesen
+Standardeinstellungen für eine Mail abweichen.
 
 Der nächste Reiter dreht sich um die Auswahl von Schlüsseln:
 
 ![OpenPGP-Einstellungen Schluesselwahl](./img/tb_20.png)
 
-Die Voreinstellung ist die beste Wahl, dadurch wird immer automatisch der passende
-Schlüssel zu einer Mailadresse gewählt und alles lässt sich durch Empfängerregeln,
-zu denen wir später noch mehr sagen, noch genauer einstellen.
+Die oben gezeigte Einstellung ist die beste Wahl, dadurch wird immer automatisch
+der passende Schlüssel zu einer Mailadresse gewählt und alles lässt sich durch
+Empfängerregeln, zu denen wir später noch mehr sagen, noch genauer einstellen,
+und falls nichts anderes zutrifft, werdet ihr gefragt den Schlüssel selbst zu
+wählen.
 
 Die erweiterten Einstellungen haben in der Standardeinstellung folgende Häkchen:
 
 ![OpenPGP-Einstellungen Erweitert](./img/tb_21.png)
 
 Die meisten Einstellungen sind relativ selbsterklärend.
-Die ersten Option regelt das automatische signierte/verschlüsselte Antworten auf
-signierte/verschlüsselte Mails, und die zweite fügt in alle Mails einen zusätzlichen
+Die ersten Option verhindert Inkompatibilitäten für dne Fall, das man unbedingt
+HTML-Mails verwenden will, und die zweite fügt in alle Mails einen zusätzlichen
 Header ein, der anzeigt, dass man Enigmail benutzt. Wenn man das nicht möchte kann man
 das getrost abschalten.
 
